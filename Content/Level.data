@@ -155,4 +155,22 @@ Level =
 		{
 		},
 	},
+	ArchetypeInstance = 
+	{
+		string Name = "52bd0ed6b3aeff6b:BulletSplash",
+		LinkId = 
+		{
+			uint Id = 5,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [11.3835, -13.2458, 0.992189],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "BulletSplash",
+		},
+	},
 },

@@ -13,6 +13,7 @@ class RedTowerLogic:
         self.damage = 1
         self.cooldown = 1
         self.range = 3
+        self.bulletType = 0
         
         self.xpos = 0
         self.ypos = 0
@@ -63,6 +64,7 @@ class RedTowerLogic:
                 shot = self.Space.CreateAtPosition("RedTowerBullet", VectorMath.Vec3(self.Owner.Transform.Translation.x, self.Owner.Transform.Translation.y, 3))
                 shot.RedTowerBulletLogic.targetedUnit = self.unitTargeted
                 shot.RedTowerBulletLogic.Damage = self.damage
+                shot.RedTowerBulletLogic.BulletType = self.bulletType
         if(not self.unitTargeted):
             self.targeted = False
             self.unitTargeted = 0

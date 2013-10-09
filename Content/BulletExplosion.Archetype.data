@@ -6,15 +6,11 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "BlueTower",
-	},
-	Archetyped = 
-	{
-		string Name = "5245760125b50c94:BlueTower",
+		string Name = "BulletExplosion",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
+		Vec3 Translation = [11.3835, -13.2458, 0.992189],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -23,7 +19,7 @@ Cog =
 		string SpriteSource = "5275aa4d802dd6dc:Square",
 		bool FlipX = false,
 		bool FlipY = false,
-		Vec4 Color = [0, 0, 1, 1],
+		Vec4 Color = [1, 1, 1, 1],
 		bool Visible = true,
 		bool OnTop = false,
 		bool AnimationActive = true,
@@ -31,11 +27,5 @@ Cog =
 		uint StartFrame = 0,
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
-	},
-	TowerLogic = 
-	{
-	},
-	BlueTowerLogic = 
-	{
 	},
 },

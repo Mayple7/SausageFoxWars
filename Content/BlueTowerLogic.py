@@ -13,6 +13,8 @@ class BlueTowerLogic:
         self.damage = 1
         self.cooldown = 1
         self.range = 10
+        self.bulletType = 2
+        self.slowSpeed = 0.9
         
         self.xpos = 0
         self.ypos = 0
@@ -63,6 +65,8 @@ class BlueTowerLogic:
                 shot = self.Space.CreateAtPosition("BlueTowerBullet", VectorMath.Vec3(self.Owner.Transform.Translation.x, self.Owner.Transform.Translation.y, 3))
                 shot.RedTowerBulletLogic.targetedUnit = self.unitTargeted
                 shot.RedTowerBulletLogic.Damage = self.damage
+                shot.RedTowerBulletLogic.BulletType = self.bulletType
+                shot.RedTowerBulletLogic.slowSpeed = self.slowSpeed
         if(not self.unitTargeted):
             self.targeted = False
             self.unitTargeted = 0

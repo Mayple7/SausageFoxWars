@@ -10,6 +10,8 @@ class RedTowerBulletLogic:
         self.Speed = 5
         self.targetedUnit = 0
         self.Damage = 0
+        self.BulletType = 0 # 0 : normal, 1 : Splash, 2 : slow, 3 : lightning?
+        self.slowSpeed = 0
         pass
     def onLogicUpdate(self, UpdateEvent):
         if (self.targetedUnit):
@@ -22,6 +24,17 @@ class RedTowerBulletLogic:
     def OnCollision(self, CollisionEvent):
         otherObject = CollisionEvent.OtherObject
         if (otherObject == self.targetedUnit):
-            otherObject.CreepLogic.health -= self.Damage
-            self.Owner.Destroy()
+            if (self.BulletType == 0):
+                otherObject.CreepLogic.health -= self.Damage
+                self.Owner.Destroy()
+            if (self.BulletType == 1):
+                splash = self.Space.CreateAtPosition("BulletSplash",self.Owner.Transform.Translation)
+                splash.BulletSplashLogic.Damage = self.Damage
+                self.Owner.Destroy()
+            if (self.BulletType == 2):
+                otherObject.CreepLogic.health -= self.Damage
+                otherObject.CreepLogic.speed = self.slowSpeed
+                otherObject.CreepLogic.slowed = True
+                self.Owner.Destroy()
+            
 Zero.RegisterComponent("RedTowerBulletLogic", RedTowerBulletLogic)

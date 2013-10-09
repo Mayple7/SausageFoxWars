@@ -9,18 +9,18 @@ class MapCreate:
     def Initialize(self, initializer):
         # SIZE:
         # 42 x 42 is the biggest square plausable for Zero
-        self.xsize = 60
-        self.ysize = 14
+        self.xsize = 16
+        self.ysize = 24
         
         # END:
         # (Make sure it is within the size bounds)
         self.endx = 2
-        self.endy = 3
+        self.endy = 2
         
         # SPWN:
         # (Make sure it is within the size bounds)
-        self.spwnx = 20
-        self.spwny = 6
+        self.spwnx = 14
+        self.spwny = 22
         
         # Place those magnificent sprites
         self.node_array = [[[0] * self.ysize for i in range(self.ysize)][0] * self.xsize for i in range(self.xsize)]

@@ -2,8 +2,8 @@ DataContent =
 {
 	DataBuilder = 
 	{
-		string Name = "YellowTower",
-		uint64 ResourceId = 524576415c608a97,
+		string Name = "BulletSplash",
+		uint64 ResourceId = 52bd0ed6b3aeff6b,
 		string LoaderType = "Cog",
 		uint Version = 0,
 		bool ShowInEditor = true,
