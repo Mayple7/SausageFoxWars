@@ -24,17 +24,11 @@ class UnitScript:
         
     def resetWeight(self):
         GameLogic =self.Space.FindObjectByName("GameLogic")
-        for i in range(GameLogic.GameLogic.xsize):
-            for j in range(GameLogic.GameLogic.ysize):
-                if(i == 0 or i == GameLogic.GameLogic.xsize-1 or j == 0 or j == GameLogic.GameLogic.ysize-1):
-                    GameLogic.GameLogic.node_array[i][j].weight = -1
-                    #print(str(i) + " : " + str(j))
-                else:
+        for i in range(1, GameLogic.GameLogic.xsize - 1):
+            for j in range(1, GameLogic.GameLogic.ysize - 1):
                     GameLogic.GameLogic.node_array[i][j].weight = -2
-                    #print(GameLogic.GameLogic.node_array[i][j].weight)
                     
         GameLogic.GameLogic.node_array[GameLogic.GameLogic.endx][GameLogic.GameLogic.endy].weight = 0
-        #GameLogic.GameLogic.refreshWeight(GameLogic.GameLogic.endx, GameLogic.GameLogic.endy)
         GameLogic.GameLogic.refreshWeight()
                         
     def OnLogicUpdate(self, UpdateEvent):
