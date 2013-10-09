@@ -1,0 +1,8 @@
+TextContent = 
+{
+	PyScriptBuilder = 
+	{
+		string Name = "TowerLogic",
+		uint64 ResourceId = 52b8752a6b67cbc9,
+	},
+},

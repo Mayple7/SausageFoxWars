@@ -1,0 +1,8 @@
+TextContent = 
+{
+	PyScriptBuilder = 
+	{
+		string Name = "RedTowerLogic",
+		uint64 ResourceId = 5245744e1b97b1e5,
+	},
+},

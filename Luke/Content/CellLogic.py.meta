@@ -1,0 +1,8 @@
+TextContent = 
+{
+	PyScriptBuilder = 
+	{
+		string Name = "CellLogic",
+		uint64 ResourceId = 52b80a36dc4f3543,
+	},
+},

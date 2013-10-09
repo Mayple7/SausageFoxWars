@@ -1,0 +1,8 @@
+TextContent = 
+{
+	PyScriptBuilder = 
+	{
+		string Name = "BlueTowerLogic",
+		uint64 ResourceId = 524576a2484c4d8e,
+	},
+},

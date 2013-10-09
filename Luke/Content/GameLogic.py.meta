@@ -1,0 +1,8 @@
+TextContent = 
+{
+	PyScriptBuilder = 
+	{
+		string Name = "GameLogic",
+		uint64 ResourceId = 52b84b89bb497a21,
+	},
+},
