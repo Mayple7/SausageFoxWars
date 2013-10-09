@@ -24,31 +24,32 @@ class CellLogic:
         level = self.Space.FindObjectByName("LevelSettings")
         self.player = level.PlayerLogic
         
+        self.GameLogic = self.Space.FindObjectByName("GameLogic")
+        self.red = self.hudspace.FindObjectByName("RedTower")
+        self.blue = self.hudspace.FindObjectByName("BlueTower")
+        self.green = self.hudspace.FindObjectByName("GreenTower")
+        self.yellow = self.hudspace.FindObjectByName("YellowTower")
+        
+        
+        
         self.DefaultState()
     
     def OnLogicUpdate(self, UpdateEvent):
-        GameLogic = self.Space.FindObjectByName("GameLogic")
-        self.Owner.SpriteText.Text = str(GameLogic.GameLogic.node_array[round(self.Owner.Transform.Translation.x)][-round(self.Owner.Transform.Translation.y)].weight)
-        self.cellProp = GameLogic.GameLogic.node_array[round(self.Owner.Transform.Translation.x)][-round(self.Owner.Transform.Translation.y)]
         
-        red = self.hudspace.FindObjectByName("RedTower")
-        blue = self.hudspace.FindObjectByName("BlueTower")
-        green = self.hudspace.FindObjectByName("GreenTower")
-        yellow = self.hudspace.FindObjectByName("YellowTower")
-        
+        self.Owner.SpriteText.Text = str(self.GameLogic.GameLogic.node_array[round(self.Owner.Transform.Translation.x)][-round(self.Owner.Transform.Translation.y)].weight)
         
         if(Zero.Keyboard.KeyIsPressed(Zero.Keys.One)):
             self.towerChoice = 1
-            self.select.Transform.Translation = Vec3(red.Transform.Translation.x, -9, 0)
+            self.select.Transform.Translation = Vec3(self.red.Transform.Translation.x, -9, 0)
         elif(Zero.Keyboard.KeyIsPressed(Zero.Keys.Two)):
             self.towerChoice = 2
-            self.select.Transform.Translation = Vec3(blue.Transform.Translation.x, -9, 0)
+            self.select.Transform.Translation = Vec3(self.blue.Transform.Translation.x, -9, 0)
         elif(Zero.Keyboard.KeyIsPressed(Zero.Keys.Three)):
             self.towerChoice = 3
-            self.select.Transform.Translation = Vec3(green.Transform.Translation.x, -9, 0)
+            self.select.Transform.Translation = Vec3(self.green.Transform.Translation.x, -9, 0)
         elif(Zero.Keyboard.KeyIsPressed(Zero.Keys.Four)):
             self.towerChoice = 4
-            self.select.Transform.Translation = Vec3(yellow.Transform.Translation.x, -9, 0)
+            self.select.Transform.Translation = Vec3(self.yellow.Transform.Translation.x, -9, 0)
             
     def DefaultState(self):
         self.Owner.Sprite.Color = self.DefaultColor
@@ -70,6 +71,9 @@ class CellLogic:
         
     def OnMouseUp(self, MouseEvent):
         self.HoverState()
+        
+        self.cellProp = self.GameLogic.GameLogic.node_array[round(self.Owner.Transform.Translation.x)][-round(self.Owner.Transform.Translation.y)]
+        
         if(self.towerChoice == 1 and self.player.money >= 5 and not self.cellProp.tower):
             tower = self.Space.CreateAtPosition("RedTower",self.Owner.Transform.Translation)
             tower.Transform.Translation += Vec3(0,0,1)

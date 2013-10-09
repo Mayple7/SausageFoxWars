@@ -9,8 +9,8 @@ class MapCreate:
     def Initialize(self, initializer):
         # SIZE:
         # 42 x 42 is the biggest square plausable for Zero
-        self.xsize = 60
-        self.ysize = 14
+        self.xsize = 30
+        self.ysize = 10
         
         # END:
         # (Make sure it is within the size bounds)

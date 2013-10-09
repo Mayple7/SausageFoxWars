@@ -34,7 +34,8 @@ class UnitScript:
                     #print(GameLogic.GameLogic.node_array[i][j].weight)
                     
         GameLogic.GameLogic.node_array[GameLogic.GameLogic.endx][GameLogic.GameLogic.endy].weight = 0
-        GameLogic.GameLogic.refreshWeight(GameLogic.GameLogic.endx, GameLogic.GameLogic.endy)
+        #GameLogic.GameLogic.refreshWeight(GameLogic.GameLogic.endx, GameLogic.GameLogic.endy)
+        GameLogic.GameLogic.refreshWeight()
                         
     def OnLogicUpdate(self, UpdateEvent):
         self.MoveSpeed = self.Owner.CreepLogic.speed
@@ -52,11 +53,9 @@ class UnitScript:
         if(Zero.Keyboard.KeyIsPressed(Zero.Keys.Space)):
             GameLogic.GameLogic.printField()
         if(Zero.Keyboard.KeyIsPressed(Zero.Keys.R)):
-            GameLogic.GameLogic.refreshWeight(GameLogic.GameLogic.endx, GameLogic.GameLogic.endy)
+            GameLogic.GameLogic.refreshWeight()
         if(Zero.Keyboard.KeyIsPressed(Zero.Keys.T)):
-            print(GameLogic.GameLogic.node_array[self.testx][self.testy].tower)
-            print(GameLogic.GameLogic.node_array[self.testx][self.testy].weight)
-            print("x: " + str(self.testx) + "y: " + str(self.testy))
+            print(GameLogic.GameLogic.count)
             
         if(self.MovementActive == 1):
             self.currentx = round(self.Owner.Transform.Translation.x)

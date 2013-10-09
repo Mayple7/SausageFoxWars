@@ -43,97 +43,49 @@ class GameLogic:
                 
         self.node_array[self.endx][self.endy].weight = 0
         
-        self.refreshWeight(self.endx, self.endy)
+        #self.refreshWeight(self.endx, self.endy)
+        self.refreshWeight()
             
         
-    def refreshWeight(self, i, j):
-        down = self.node_array[i][j+1]
-        up = self.node_array[i][j-1]
-        right = self.node_array[i+1][j]
-        left = self.node_array[i-1][j]
-        current = self.node_array[i][j]
+    def refreshWeight(self):
+        self.count += 1
+        self.node_array[self.endx][self.endy].weight = 0
+        completeRefresh = False
         
-        current.check_down = False
-        current.check_up = False
-        current.check_right = False
-        current.check_left = False
-        
-        if(down.weight == -1):
-            pass
-        elif(down.tower):
-            if(down.weight > current.weight+1001 or down.weight == -2):
-                down.weight = current.weight+1001
-                current.check_down = True
-                #self.refreshWeight(i, j+1)
-        elif(down.weight == -2):
-            down.weight = current.weight+1
-            current.check_down = True
-            #self.refreshWeight(i, j+1)
-        elif(down.weight > current.weight+1):
-            down.weight = current.weight+1
-            current.check_down = True
-            #self.refreshWeight(i, j+1)
-        
-        if(left.weight == -1):
-            pass
-        elif(left.tower):
-            if(left.weight > current.weight+1001 or left.weight == -2):
-                left.weight = current.weight+1001
-                current.check_left = True
-                #self.refreshWeight(i-1, j)
-        elif(left.weight == -2):
-            left.weight = current.weight+1
-            current.check_left = True
-            #self.refreshWeight(i-1, j)
-        elif(left.weight > current.weight+1):
-            left.weight = current.weight+1
-            current.check_left = True
-            #self.refreshWeight(i-1, j)
-            
-        if(up.weight == -1):
-            pass
-        elif(up.tower):
-            if(up.weight > current.weight+1001 or up.weight == -2):
-                up.weight = current.weight+1001
-                current.check_up = True
-                #self.refreshWeight(i, j-1)
-        elif(up.weight == -2):
-            up.weight = current.weight+1
-            current.check_up = True
-            #self.refreshWeight(i, j-1)
-        elif(up.weight > current.weight+1):
-            up.weight = current.weight+1
-            current.check_up = True
-            #self.refreshWeight(i, j-1)
-            
-        if(right.weight == -1):
-            pass
-        elif(right.tower):
-            if(right.weight > current.weight+1001 or right.weight == -2):
-                right.weight = current.weight+1001
-                current.check_right = True
-                #self.refreshWeight(i+1, j)
-        elif(right.weight == -2):
-            right.weight = current.weight+1
-            current.check_right = True
-            #self.refreshWeight(i+1, j)
-        elif(right.weight > current.weight+1):
-            right.weight = current.weight+1
-            current.check_right = True
-            #self.refreshWeight(i+1, j)
-        
-        #print(str(i) + " : " + str(j))
-        #print(str(check_down) + str(check_left) + str(check_up) + str(check_right))
-        
-        
-        if(current.check_right):
-            self.refreshWeight(i+1, j)
-        if(current.check_left):
-            self.refreshWeight(i-1, j)
-        if(current.check_up):
-            self.refreshWeight(i, j-1)
-        if(current.check_down):
-            self.refreshWeight(i, j+1)
+        for i in range(1, self.xsize - 1):
+            for j in range(1, self.ysize - 1):
+                self.count += 1
+                
+                down = self.node_array[i][j+1]
+                up = self.node_array[i][j-1]
+                right = self.node_array[i+1][j]
+                left = self.node_array[i-1][j]
+                
+                current = self.node_array[i][j]
+                minimum = 1000000000
+                
+                if(down.weight >= 0):
+                    minimum = min(minimum, down.weight)
+                if(up.weight >= 0):
+                    minimum = min(minimum, up.weight)
+                if(right.weight >= 0):
+                    minimum = min(minimum, right.weight)
+                if(left.weight >= 0):
+                    minimum = min(minimum, left.weight)
+                    
+                
+                if(current.tower):
+                    if(minimum != 1000000000 and current.weight > minimum + 1001 or current.weight == -2):
+                        print("TOWER TOWER")
+                        current.weight = minimum + 1001
+                        print(current.weight)
+                        completeRefresh = True
+                elif(minimum != 1000000000 and (current.weight > minimum + 1 or current.weight == -2)):
+                    current.weight = minimum + 1
+                    completeRefresh = True
+                        
+        if(completeRefresh):
+            self.refreshWeight()
         
     def printField(self):
         for i in range(self.xsize):

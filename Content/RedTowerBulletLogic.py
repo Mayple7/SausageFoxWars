@@ -13,7 +13,7 @@ class RedTowerBulletLogic:
         pass
     def onLogicUpdate(self, UpdateEvent):
         if (self.targetedUnit):
-            self.Speed += UpdateEvent.Dt
+            self.Speed += UpdateEvent.Dt * 5
             direction = self.targetedUnit.Transform.Translation - self.Owner.Transform.Translation
             direction.normalize()
             self.Owner.Transform.Translation += VectorMath.Vec3(direction.x * (UpdateEvent.Dt * self.Speed), direction.y * (UpdateEvent.Dt * self.Speed), 0)
