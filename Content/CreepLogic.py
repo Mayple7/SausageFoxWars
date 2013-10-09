@@ -6,6 +6,7 @@ import Color
 
 class CreepLogic:
     def Initialize(self, initializer):
+        #Initializes the creep's stats
         self.health = 10
         self.startSpeed = 0.5
         self.speed = 0.5
@@ -21,6 +22,7 @@ class CreepLogic:
         if (self.slowed):
             self.Owner.Sprite.Color = Color.Blue
             self.slowTimer -= UpdateEvent.Dt
+        #Destroys creep if hp reaches 0
             
             if (self.slowTimer < 0):
                 self.slowed = False

@@ -43,7 +43,6 @@ class GameLogic:
                 
         self.node_array[self.endx][self.endy].weight = 0
         
-        #self.refreshWeight(self.endx, self.endy)
         self.refreshWeight()
             
         
@@ -76,9 +75,7 @@ class GameLogic:
                 
                 if(current.tower):
                     if(minimum != 1000000000 and current.weight > minimum + 1001 or current.weight == -2):
-                        print("TOWER TOWER")
                         current.weight = minimum + 1001
-                        print(current.weight)
                         completeRefresh = True
                 elif(minimum != 1000000000 and (current.weight > minimum + 1 or current.weight == -2)):
                     current.weight = minimum + 1

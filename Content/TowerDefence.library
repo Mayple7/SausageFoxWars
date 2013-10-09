@@ -4,6 +4,7 @@ ContentLibrary =
 	Array Files = 
 	[
 		"BlueTower.Archetype.data",
+		"BlueTower2.Archetype.data",
 		"BlueTowerBullet.Archetype.data",
 		"BlueTowerLogic.py",
 		"BulletExplosion.Archetype.data",

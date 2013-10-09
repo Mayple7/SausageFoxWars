@@ -8,12 +8,14 @@ Vec3 = VectorMath.Vec3
 
 class CellLogic:
     def Initialize(self, initializer):
+        #Set up the mouse event functions
         Zero.Connect(self.Owner, Events.MouseEnter, self.OnMouseEnter)
         Zero.Connect(self.Owner, Events.MouseExit, self.OnMouseExit)
         Zero.Connect(self.Owner, Events.MouseDown, self.OnMouseDown)
         Zero.Connect(self.Owner, Events.MouseUp, self.OnMouseUp)
         Zero.Connect(self.Space, Events.LogicUpdate, self.OnLogicUpdate)
         
+        #Initializes the cell color highlights
         self.DefaultColor = Vec4(1,1,1,1)
         self.HoverColor = Vec4(.75,.75,.75,.75)
         self.DownColor = Vec4(.5,.5,.5,.5)
