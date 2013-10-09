@@ -10,7 +10,7 @@ class MapCreate:
         # SIZE:
         # 42 x 42 is the biggest square plausable for Zero
         self.xsize = 60
-        self.ysize = 10
+        self.ysize = 14
         
         # END:
         # (Make sure it is within the size bounds)
