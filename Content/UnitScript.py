@@ -10,7 +10,7 @@ class UnitScript:
         #Initializes the unit movement and timers
         self.currentx = 0
         self.currenty = 0
-        self.MovementActive = 0
+        self.MovementActive = 1
         self.MovementTimer = 0.1
         self.MovingActive = 0
         self.MovingTimer = self.MovementTimer/16
@@ -35,19 +35,18 @@ class UnitScript:
                     
         GameLogic.GameLogic.node_array[GameLogic.GameLogic.endx][GameLogic.GameLogic.endy].weight = 0
         GameLogic.GameLogic.refreshWeight()
-                        
+        
     def OnLogicUpdate(self, UpdateEvent):
         self.MoveSpeed = self.Owner.CreepLogic.speed
-        if(self.MovementTimer <= 0):
-            self.MovementActive = 1
-            self.MovementTimer = 0
-            
+        
         if (self.MovingTimer > 0 and self.MovingActive == 0):
             self.MovingTimer -= UpdateEvent.Dt
         if(self.MovingTimer <= 0):
             self.MovingActive = 1
             self.MovingTimer = 0
-        
+        if(Vec3(round(self.Owner.Transform.Translation.x,1), round(self.Owner.Transform.Translation.y*-1,1), 0) == Vec3(self.currentx, self.currenty, 0)):
+            self.MovementActive = 1
+            
         GameLogic = self.Space.FindObjectByName("GameLogic")
         if(Zero.Keyboard.KeyIsPressed(Zero.Keys.Space)):
             GameLogic.GameLogic.printField()
@@ -55,10 +54,12 @@ class UnitScript:
             GameLogic.GameLogic.refreshWeight()
         if(Zero.Keyboard.KeyIsPressed(Zero.Keys.T)):
             print(GameLogic.GameLogic.count)
-            
+        
         if(self.MovementActive == 1):
+            
             self.currentx = round(self.Owner.Transform.Translation.x)
             self.currenty = round(-1*(self.Owner.Transform.Translation.y))
+            #print(Vec3(self.Owner.Transform.Translation.x, self.Owner.Transform.Translation.y*-1, 0))
             down = GameLogic.GameLogic.node_array[self.currentx][self.currenty+1].weight
             left = GameLogic.GameLogic.node_array[self.currentx-1][self.currenty].weight
             up = GameLogic.GameLogic.node_array[self.currentx][self.currenty-1].weight
@@ -125,19 +126,19 @@ class UnitScript:
                         self.testy = self.currenty
                         self.resetWeight()
                     #print("right")
+                #print(self.Owner.Transform.Translation)
                 self.move = Vec3(self.currentx,self.currenty, 0) - Vec3(round((self.Owner.Transform.Translation.x)),round(-1*(self.Owner.Transform.Translation.y)),0)
             else:
                 self.levelSettings.PlayerLogic.lives -= 1
                 self.Owner.Destroy()
-            self.MovementTimer = self.MoveSpeed
             self.MovementActive = 0
+            self.MovingActive = 1
+            self.MovingTimer = (self.MoveSpeed) / 16
+            #print(Vec3(self.currentx, self.currenty, 0))
             
         if (self.MovingActive == 1):
             self.Owner.Transform.Translation += VectorMath.Vec3((self.move.x)/16, -(self.move.y)/16, 0)
             self.MovingTimer = (self.MoveSpeed)/16
-            self.MovementTimer -= (self.MoveSpeed)/16
             self.MovingActive = 0
-        #print(GameLogic.GameLogic.node_array[self.currenty-1][self.currentx].tower)
-        #print(self.Owner.Transform.Translation)
-    
+            
 Zero.RegisterComponent("UnitScript", UnitScript)

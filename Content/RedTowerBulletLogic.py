@@ -44,6 +44,7 @@ class RedTowerBulletLogic:
                 otherObject.CreepLogic.slowTimer = otherObject.CreepLogic.slowTime
                 otherObject.CreepLogic.speed = self.slowSpeed
                 otherObject.CreepLogic.slowed = True
+                otherObject.UnitScript.MovingTimer * 2
                 self.Owner.Destroy()
             
 Zero.RegisterComponent("RedTowerBulletLogic", RedTowerBulletLogic)

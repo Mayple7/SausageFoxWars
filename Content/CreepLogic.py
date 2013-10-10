@@ -32,6 +32,7 @@ class CreepLogic:
                 self.slowed = False
                 self.slowTimer = self.slowTime
                 self.speed = self.startSpeed
+                self.Owner.UnitScript.MovingTimer / 2
         else:
             self.Owner.Sprite.Color = Color.Red
         
