@@ -21,18 +21,18 @@ class CellLogic:
         self.DownColor = Vec4(.5,.5,.5,.5)
         self.towerChoice = 1
         
+        #Initializes the hud and other level settings
         self.hudspace = Zero.Game.FindSpaceByName("HUDLevel")
         self.select = self.hudspace.FindObjectByName("Selector")
         level = self.Space.FindObjectByName("LevelSettings")
         self.player = level.PlayerLogic
         
+        #Creates variables for the various hud objects
         self.GameLogic = self.Space.FindObjectByName("GameLogic")
         self.red = self.hudspace.FindObjectByName("RedTower")
         self.blue = self.hudspace.FindObjectByName("BlueTower")
         self.green = self.hudspace.FindObjectByName("GreenTower")
         self.yellow = self.hudspace.FindObjectByName("YellowTower")
-        
-        
         
         self.DefaultState()
     
@@ -40,6 +40,7 @@ class CellLogic:
         
         self.Owner.SpriteText.Text = str(self.GameLogic.GameLogic.node_array[round(self.Owner.Transform.Translation.x)][-round(self.Owner.Transform.Translation.y)].weight)
         
+        #Changes the tower being placed based on input
         if(Zero.Keyboard.KeyIsPressed(Zero.Keys.One)):
             self.towerChoice = 1
             self.select.Transform.Translation = Vec3(self.red.Transform.Translation.x, -9, 0)
@@ -74,6 +75,7 @@ class CellLogic:
     def OnMouseUp(self, MouseEvent):
         self.HoverState()
         
+        #Places a tower at the cell location if it is valid
         self.cellProp = self.GameLogic.GameLogic.node_array[round(self.Owner.Transform.Translation.x)][-round(self.Owner.Transform.Translation.y)]
         
         if(self.towerChoice == 1 and self.player.money >= 5 and not self.cellProp.tower):

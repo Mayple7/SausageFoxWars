@@ -7,6 +7,7 @@ Vec3 = VectorMath.Vec3
 
 class UnitScript:
     def Initialize(self, initializer):
+        #Initializes the unit movement and timers
         self.currentx = 0
         self.currenty = 0
         self.MovementActive = 0
@@ -23,6 +24,7 @@ class UnitScript:
         Zero.Connect(self.Space, Events.LogicUpdate, self.OnLogicUpdate)
         
     def resetWeight(self):
+        #Resets all the weights and refreshes the grid
         GameLogic =self.Space.FindObjectByName("GameLogic")
         for i in range(1, GameLogic.GameLogic.xsize - 1):
             for j in range(1, GameLogic.GameLogic.ysize - 1):

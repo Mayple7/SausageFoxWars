@@ -19,10 +19,10 @@ class CreepLogic:
         Zero.Connect(self.Space, Events.LogicUpdate, self.onLogicUpdate)
         
     def onLogicUpdate(self, UpdateEvent):
+        #Update creep if he is slowed
         if (self.slowed):
             self.Owner.Sprite.Color = Color.Blue
             self.slowTimer -= UpdateEvent.Dt
-        #Destroys creep if hp reaches 0
             
             if (self.slowTimer < 0):
                 self.slowed = False
@@ -32,6 +32,8 @@ class CreepLogic:
             self.Owner.Sprite.Color = Color.Red
         
         self.Owner.SpriteText.Text = str(self.health)
+        
+        #Destroys creep if hp reaches 0
         if (self.health <= 0):
             self.Owner.Destroy()
 
