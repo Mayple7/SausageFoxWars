@@ -9,7 +9,7 @@ class RedTowerBulletLogic:
         Zero.Connect(self.Owner, Events.CollisionPersisted, self.OnCollision)
         
         #Initializes the bullet logic
-        self.Speed = 5
+        self.Speed = 15
         self.targetedUnit = 0
         self.Damage = 0
         self.BulletType = 0 # 0 : normal, 1 : Splash, 2 : slow, 3 : lightning?

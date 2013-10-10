@@ -21,6 +21,9 @@ class UnitScript:
         self.testx = 0
         self.testy = 0
         
+        #Gets the HUD to reduce lives
+        self.levelSettings = self.Space.FindObjectByName("LevelSettings")
+        
         Zero.Connect(self.Space, Events.LogicUpdate, self.OnLogicUpdate)
         
     def resetWeight(self):
@@ -124,6 +127,7 @@ class UnitScript:
                     #print("right")
                 self.move = Vec3(self.currentx,self.currenty, 0) - Vec3(round((self.Owner.Transform.Translation.x)),round(-1*(self.Owner.Transform.Translation.y)),0)
             else:
+                self.levelSettings.PlayerLogic.lives -= 1
                 self.Owner.Destroy()
             self.MovementTimer = self.MoveSpeed
             self.MovementActive = 0

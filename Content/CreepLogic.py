@@ -7,14 +7,16 @@ import Color
 class CreepLogic:
     def Initialize(self, initializer):
         #Initializes the creep's stats
-        self.health = 10
-        self.startSpeed = 0.5
-        self.speed = 0.5
+        self.startSpeed = 0.1
+        self.speed = self.startSpeed
         self.level = 0
         
         self.slowTime = 2
         self.slowTimer = self.slowTime
         self.slowed = False
+        
+        levelsettings = self.Space.FindObjectByName("LevelSettings")
+        self.health = levelsettings.PlayerLogic.level * 10
         
         Zero.Connect(self.Space, Events.LogicUpdate, self.onLogicUpdate)
         
@@ -31,10 +33,11 @@ class CreepLogic:
         else:
             self.Owner.Sprite.Color = Color.Red
         
-        self.Owner.SpriteText.Text = str(self.health)
+        self.Owner.SpriteText.Text = str(round(self.health))
         
         #Destroys creep if hp reaches 0
         if (self.health <= 0):
             self.Owner.Destroy()
+            
 
 Zero.RegisterComponent("CreepLogic", CreepLogic)

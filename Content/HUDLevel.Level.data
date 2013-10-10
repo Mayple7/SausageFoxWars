@@ -550,4 +550,36 @@ Level =
 			float PixelsPerUnit = 64,
 		},
 	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 18,
+		},
+		Named = 
+		{
+			string Name = "Lives",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [7.5, -7, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SpriteText = 
+		{
+			SpriteGeometryMode GeometryMode = ZPlane,
+			TextPositionMode Position = UpperLeft,
+			string FontName = "4e7bac697bec55c5:Verdana",
+			uint FontSize = 100,
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = true,
+			string Text = "Lives",
+			bool OnTop = false,
+			BlendMode BlendMode = Alpha,
+			Vec2 Size = [0, 0],
+			TextAlign Align = Left,
+			float PixelsPerUnit = 64,
+		},
+	},
 },

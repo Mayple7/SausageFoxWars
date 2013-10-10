@@ -11,7 +11,7 @@ class GreenTowerLogic:
         
         #Initialize tower stats
         self.cost = 25
-        self.damage = 1
+        self.damage = 2
         self.cooldown = 1
         self.range = 5
         self.bulletType = 1

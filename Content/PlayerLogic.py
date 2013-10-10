@@ -21,6 +21,8 @@ class PlayerLogic:
         self.incomeText = self.hudspace.FindObjectByName("Income")
         self.levelText = self.hudspace.FindObjectByName("Level")
         self.timerText = self.hudspace.FindObjectByName("Timer")
+        self.livesText = self.hudspace.FindObjectByName("Lives")
+        
         
     def onLogicUpdate(self, UpdateEvent):
         self.time -= UpdateEvent.Dt
@@ -39,5 +41,6 @@ class PlayerLogic:
         self.incomeText.SpriteText.Text = "Income: " + str(self.income)
         self.levelText.SpriteText.Text = "Level: " + str(self.level)
         self.timerText.SpriteText.Text = "Next Income: " + str(round(self.time))
+        self.livesText.SpriteText.Text = "Lives: " + str(self.lives)
 
 Zero.RegisterComponent("PlayerLogic", PlayerLogic)
