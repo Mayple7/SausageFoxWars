@@ -15,8 +15,10 @@ class CreepLogic:
         self.slowTimer = self.slowTime
         self.slowed = False
         
-        levelsettings = self.Space.FindObjectByName("LevelSettings")
-        self.health = levelsettings.PlayerLogic.level * 10
+        self.levelsettings = self.Space.FindObjectByName("LevelSettings")
+        self.health = self.levelsettings.PlayerLogic.level * 10
+        
+        self.bounty = self.levelsettings.PlayerLogic.level
         
         Zero.Connect(self.Space, Events.LogicUpdate, self.onLogicUpdate)
         
@@ -37,6 +39,7 @@ class CreepLogic:
         
         #Destroys creep if hp reaches 0
         if (self.health <= 0):
+            self.levelsettings.PlayerLogic.money += self.bounty
             self.Owner.Destroy()
             
 

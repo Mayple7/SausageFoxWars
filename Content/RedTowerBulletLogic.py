@@ -41,6 +41,7 @@ class RedTowerBulletLogic:
             #Slow bullet
             if (self.BulletType == 2):
                 otherObject.CreepLogic.health -= self.Damage
+                otherObject.CreepLogic.slowTimer = otherObject.CreepLogic.slowTime
                 otherObject.CreepLogic.speed = self.slowSpeed
                 otherObject.CreepLogic.slowed = True
                 self.Owner.Destroy()
