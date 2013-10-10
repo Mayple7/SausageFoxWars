@@ -1,0 +1,8 @@
+TextContent = 
+{
+	PyScriptBuilder = 
+	{
+		string Name = "UpgradeBasic",
+		uint64 ResourceId = 52400f9cb321c4dc,
+	},
+},

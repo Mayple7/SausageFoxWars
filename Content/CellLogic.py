@@ -43,16 +43,16 @@ class CellLogic:
         #Changes the tower being placed based on input
         if(Zero.Keyboard.KeyIsPressed(Zero.Keys.One)):
             self.towerChoice = 1
-            self.select.Transform.Translation = Vec3(self.red.Transform.Translation.x, -9, 0)
-        elif(Zero.Keyboard.KeyIsPressed(Zero.Keys.Two)):
-            self.towerChoice = 2
-            self.select.Transform.Translation = Vec3(self.blue.Transform.Translation.x, -9, 0)
+            self.select.Transform.Translation = Vec3(self.red.Transform.Translation.x, -6, 0)
         elif(Zero.Keyboard.KeyIsPressed(Zero.Keys.Three)):
+            self.towerChoice = 2
+            self.select.Transform.Translation = Vec3(self.blue.Transform.Translation.x, -6, 0)
+        elif(Zero.Keyboard.KeyIsPressed(Zero.Keys.Two)):
             self.towerChoice = 3
-            self.select.Transform.Translation = Vec3(self.green.Transform.Translation.x, -9, 0)
+            self.select.Transform.Translation = Vec3(self.green.Transform.Translation.x, -6, 0)
         elif(Zero.Keyboard.KeyIsPressed(Zero.Keys.Four)):
             self.towerChoice = 4
-            self.select.Transform.Translation = Vec3(self.yellow.Transform.Translation.x, -9, 0)
+            self.select.Transform.Translation = Vec3(self.yellow.Transform.Translation.x, -6, 0)
             
     def DefaultState(self):
         self.Owner.Sprite.Color = self.DefaultColor
@@ -83,13 +83,13 @@ class CellLogic:
             tower.Transform.Translation += Vec3(0,0,1)
             tower.RedTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.RedTowerLogic.ypos = -round(tower.Transform.Translation.y)
-            self.player.money -= 5
+            self.player.money -= tower.RedTowerLogic.cost
         elif(self.towerChoice == 2 and self.player.money >= 10 and not self.cellProp.tower):
             tower = self.Space.CreateAtPosition("BlueTower",self.Owner.Transform.Translation)
             tower.Transform.Translation += Vec3(0,0,1)
             tower.BlueTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.BlueTowerLogic.ypos = -round(tower.Transform.Translation.y)
-            self.player.money -= 10
+            self.player.money -= tower.BlueTowerLogic.cost
         elif(self.towerChoice == 3 and self.player.money >= 25 and not self.cellProp.tower):
             tower = self.Space.CreateAtPosition("GreenTower",self.Owner.Transform.Translation)
             tower.Transform.Translation += Vec3(0,0,1)

@@ -7,7 +7,7 @@ import Color
 class CreepLogic:
     def Initialize(self, initializer):
         #Initializes the creep's stats
-        self.startSpeed = 0.1
+        self.startSpeed = 0.5
         self.speed = self.startSpeed
         self.level = 0
         
