@@ -19,7 +19,7 @@ class EnemySpawnerLogic:
         #Sets up HUD variables
         self.hudspace = Zero.Game.FindSpaceByName("HUDLevel")
         self.levelTimerText = self.hudspace.FindObjectByName("LevelTimer")
-        self.levelset = self.Space.FindObjectByName("LevelSettings")
+        self.player = self.Space.FindObjectByName("Player")
         
     def OnLogicUpdate(self, UpdateEvent):
         #Updates the timers and displays it on screen
@@ -30,13 +30,13 @@ class EnemySpawnerLogic:
         #Changes level after 30 seconds
         if(self.leveltimer > 30):
             self.leveltimer = 0
-            self.levelset.PlayerLogic.level += 1
+            self.player.PlayerLogic.level += 1
             self.enemyCount = 0
         
         #Spawns a set number of creeps
         if(self.enemyCount <= self.maxEnemies and self.spawnTimer >= 1):
             unit = self.Space.CreateAtPosition("Unit", self.Owner.Transform.Translation)
-            unit.CreepLogic.level = self.levelset.PlayerLogic.level
+            unit.CreepLogic.level = self.player.PlayerLogic.level
             unit.Transform.Translation += Vec3(0,0,1)
             self.spawnTimer = 0
             self.enemyCount += 1

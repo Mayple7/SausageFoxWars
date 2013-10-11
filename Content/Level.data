@@ -48,12 +48,6 @@ Level =
 		{
 			string LevelforHUD = "52451643377b9cbb:HUDLevel",
 		},
-		PlayerLogic = 
-		{
-		},
-		MapCreate = 
-		{
-		},
 	},
 	Cog = 
 	{
@@ -129,21 +123,21 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "GameLogic",
+			string Name = "Race1Button",
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-8, -1.5, -30],
-			Vec3 Scale = [1, 1, 1],
+			Vec3 Translation = [3.89271, -0.0527735, 0.992188],
+			Vec3 Scale = [1.85201, 1.85201, 1.85201],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
 		{
-			string SpriteSource = "5274db4c2e7c11f9:Circle",
+			string SpriteSource = "524072287c07582e:race_button",
 			bool FlipX = false,
 			bool FlipY = false,
 			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = false,
+			bool Visible = true,
 			bool OnTop = false,
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
@@ -151,7 +145,71 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 		},
-		GameLogic = 
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = false,
+			string MaterialName = "4faa6050b8692851:HardMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [2.375, 0.8, 0.5],
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = true,
+		},
+		Race1Button = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 5,
+		},
+		Named = 
+		{
+			string Name = "Race2Button",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [3.89271, -4.25194, 0.992188],
+			Vec3 Scale = [1.85201, 1.85201, 1.85201],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			string SpriteSource = "524f75625d776117:race_button2",
+			bool FlipX = false,
+			bool FlipY = false,
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = true,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = false,
+			string MaterialName = "4faa6050b8692851:HardMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [2.375, 0.8, 0.5],
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = true,
+		},
+		Race1Button = 
 		{
 		},
 	},

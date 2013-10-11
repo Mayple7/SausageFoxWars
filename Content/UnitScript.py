@@ -22,7 +22,7 @@ class UnitScript:
         self.testy = 0
         
         #Gets the HUD to reduce lives
-        self.levelSettings = self.Space.FindObjectByName("LevelSettings")
+        self.player = self.Space.FindObjectByName("Player")
         
         Zero.Connect(self.Space, Events.LogicUpdate, self.OnLogicUpdate)
         
@@ -129,7 +129,7 @@ class UnitScript:
                 #print(self.Owner.Transform.Translation)
                 self.move = Vec3(self.currentx,self.currenty, 0) - Vec3(round((self.Owner.Transform.Translation.x)),round(-1*(self.Owner.Transform.Translation.y)),0)
             else:
-                self.levelSettings.PlayerLogic.lives -= 1
+                self.player.PlayerLogic.lives -= 1
                 self.Owner.Destroy()
             self.MovementActive = 0
             self.MovingActive = 1

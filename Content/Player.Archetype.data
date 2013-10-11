@@ -1,0 +1,38 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Player",
+	},
+	Archetyped = 
+	{
+		string Name = "524f6c6f4ad2c1f0:Player",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [15.9425, -3.58251, 0.992188],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Sprite = 
+	{
+		string SpriteSource = "5275aa4d802dd6dc:Square",
+		bool FlipX = false,
+		bool FlipY = false,
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = false,
+		bool OnTop = false,
+		bool AnimationActive = true,
+		float AnimationSpeed = 1,
+		uint StartFrame = 0,
+		BlendMode BlendMode = Alpha,
+		SpriteGeometryMode GeometryMode = ZPlane,
+	},
+	PlayerLogic = 
+	{
+	},
+},

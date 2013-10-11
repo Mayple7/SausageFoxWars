@@ -7,7 +7,7 @@ Vec4 = VectorMath.Vec4
 Vec3 = VectorMath.Vec3
 
 class CellLogic:
-    InputType = Property.Bool(False)
+    InputType = Property.Bool(True)
     GamepadIndex = Property.Int(default = 0)
     def Initialize(self, initializer):
         self.Selected = False
@@ -38,7 +38,7 @@ class CellLogic:
         #Initializes the hud and other level settings
         self.hudspace = Zero.Game.FindSpaceByName("HUDLevel")
         self.select = self.hudspace.FindObjectByName("Selector")
-        level = self.Space.FindObjectByName("LevelSettings")
+        level = self.Space.FindObjectByName("Player")
         self.player = level.PlayerLogic
         
         #Creates variables for the various hud objects

@@ -25,6 +25,12 @@ class MapCreate:
         # Place those magnificent sprites
         self.node_array = [[[0] * self.ysize for i in range(self.ysize)][0] * self.xsize for i in range(self.xsize)]
         
+        self.Space.CreateAtPosition("Player", VectorMath.Vec3(-10, -2, -30))
+        self.Space.CreateAtPosition("GameLogic", VectorMath.Vec3(-10, -2, -30))
+        
+        self.Space.FindObjectByName("Race1Button").Destroy()
+        self.Space.FindObjectByName("Race2Button").Destroy()
+        
         for i in range(self.xsize):
             for j in range(self.ysize):
                 # BORDER:
@@ -43,6 +49,6 @@ class MapCreate:
                 else:
                     cell = self.Space.CreateAtPosition("Cell", Vec3(i, 0 - j, 0))
                     
-        
+
 
 Zero.RegisterComponent("MapCreate", MapCreate)

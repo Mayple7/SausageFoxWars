@@ -1,0 +1,40 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "GameLogic",
+	},
+	Archetyped = 
+	{
+		string Name = "5240746ab7d912df:GameLogic",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Sprite = 
+	{
+		string SpriteSource = "5274db4c2e7c11f9:Circle",
+		bool FlipX = false,
+		bool FlipY = false,
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = false,
+		bool OnTop = false,
+		bool AnimationActive = true,
+		float AnimationSpeed = 1,
+		uint StartFrame = 0,
+		BlendMode BlendMode = Alpha,
+		SpriteGeometryMode GeometryMode = ZPlane,
+	},
+	GameLogic = 
+	{
+		bool InputType = true,
+		int GamepadIndex = 0,
+	},
+},

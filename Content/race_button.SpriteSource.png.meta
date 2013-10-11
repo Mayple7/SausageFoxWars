@@ -1,0 +1,19 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "race_button",
+		uint64 ResourceId = 524072287c07582e,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 300,
+		uint FrameSizeY = 100,
+		uint FrameCount = 1,
+		float FrameDelay = 0.0833333,
+		float OriginX = 150,
+		float OriginY = 50,
+		float PixelsPerUnit = 64,
+		bool Smoothing = true,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+	},
+},

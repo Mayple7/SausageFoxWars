@@ -48,10 +48,10 @@ class GameLogic:
             Zero.Connect(self.Gamepad, Events.ButtonUp, self.OnButtonUp)
         
         #Snatches the size and end from the MapCreate script
-        self.xsize = self.Space.FindObjectByName("LevelSettings").MapCreate.xsize
-        self.ysize = self.Space.FindObjectByName("LevelSettings").MapCreate.ysize
-        self.endx = self.Space.FindObjectByName("LevelSettings").MapCreate.endx
-        self.endy = self.Space.FindObjectByName("LevelSettings").MapCreate.endy
+        self.xsize = self.Space.FindObjectByName("MapCreate").MapCreate.xsize
+        self.ysize = self.Space.FindObjectByName("MapCreate").MapCreate.ysize
+        self.endx = self.Space.FindObjectByName("MapCreate").MapCreate.endx
+        self.endy = self.Space.FindObjectByName("MapCreate").MapCreate.endy
         
         #Sets up the array for cell
         self.node_array = [[[0]*self.ysize for i in range(self.ysize)][0]*self.xsize for i in range(self.xsize)]
@@ -77,35 +77,36 @@ class GameLogic:
         self.refreshWeight()
         
     def OnLogicUpdate(self, UpdateEvent):
-        if (self.SelectingCell == 0):
-            self.CellSelected = self.node_array[self.CellSelectedx][self.CellSelectedy].cellName.CellLogic.HoverState()
-            self.SelectingCell = 1
-            
-        direction = self.Gamepad.LeftStick
-        
-        self.CellSelectedxStick += direction.x * (UpdateEvent.Dt * 5)
-        self.CellSelectedyStick -= direction.y * (UpdateEvent.Dt * 5)
-        
-        if (self.CellSelectedxStick < 1):
-                self.CellSelectedxStick = 1
+        if(not self.InputType):
+            if (self.SelectingCell == 0):
+                self.CellSelected = self.node_array[self.CellSelectedx][self.CellSelectedy].cellName.CellLogic.HoverState()
+                self.SelectingCell = 1
                 
-        if (self.CellSelectedxStick > self.xsize-2):
-                self.CellSelectedxStick = self.xsize-2
-                
-        if (self.CellSelectedyStick < 1):
-                self.CellSelectedyStick = 1
-        
-        if (self.CellSelectedyStick > self.ysize-2):
-                self.CellSelectedyStick = self.ysize-2
-        
-        if (not(self.CellSelectedx == round(self.CellSelectedxStick)) or not(self.CellSelectedy == round(self.CellSelectedyStick))):
-            if (self.node_array[self.CellSelectedx][self.CellSelectedy].cellName):
-                self.node_array[self.CellSelectedx][self.CellSelectedy].cellName.CellLogic.DefaultState()
+            direction = self.Gamepad.LeftStick
             
-            self.CellSelectedx = round(self.CellSelectedxStick)
-            self.CellSelectedy = round(self.CellSelectedyStick)
-            if (self.node_array[self.CellSelectedx][self.CellSelectedy].cellName):
-                self.node_array[self.CellSelectedx][self.CellSelectedy].cellName.CellLogic.HoverState()
+            self.CellSelectedxStick += direction.x * (UpdateEvent.Dt * 5)
+            self.CellSelectedyStick -= direction.y * (UpdateEvent.Dt * 5)
+            
+            if (self.CellSelectedxStick < 1):
+                    self.CellSelectedxStick = 1
+                    
+            if (self.CellSelectedxStick > self.xsize-2):
+                    self.CellSelectedxStick = self.xsize-2
+                    
+            if (self.CellSelectedyStick < 1):
+                    self.CellSelectedyStick = 1
+            
+            if (self.CellSelectedyStick > self.ysize-2):
+                    self.CellSelectedyStick = self.ysize-2
+            
+            if (not(self.CellSelectedx == round(self.CellSelectedxStick)) or not(self.CellSelectedy == round(self.CellSelectedyStick))):
+                if (self.node_array[self.CellSelectedx][self.CellSelectedy].cellName):
+                    self.node_array[self.CellSelectedx][self.CellSelectedy].cellName.CellLogic.DefaultState()
+                
+                self.CellSelectedx = round(self.CellSelectedxStick)
+                self.CellSelectedy = round(self.CellSelectedyStick)
+                if (self.node_array[self.CellSelectedx][self.CellSelectedy].cellName):
+                    self.node_array[self.CellSelectedx][self.CellSelectedy].cellName.CellLogic.HoverState()
             
     def refreshWeight(self):
         #Resets the end point to 0 and starting loop variables
