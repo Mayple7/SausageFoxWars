@@ -34,13 +34,21 @@ class EnemySpawnerLogic:
             self.enemyCount = 0
         
         #Spawns a set number of creeps
-        if(self.enemyCount <= self.maxEnemies and self.spawnTimer >= 1):
-            unit = self.Space.CreateAtPosition("Unit", self.Owner.Transform.Translation)
-            unit.CreepLogic.level = self.player.PlayerLogic.level
-            unit.Transform.Translation += Vec3(0,0,1)
-            self.spawnTimer = 0
-            self.enemyCount += 1
-            
+        if(self.player.PlayerLogic.level % 2 == 0):
+            if(self.enemyCount <= self.maxEnemies and self.spawnTimer >= 1):
+                unit = self.Space.CreateAtPosition("Unit2", self.Owner.Transform.Translation)
+                unit.CreepLogic.level = self.player.PlayerLogic.level
+                unit.Transform.Translation += Vec3(0,0,1)
+                self.spawnTimer = 0
+                self.enemyCount += 1
+        else:
+            if(self.enemyCount <= self.maxEnemies and self.spawnTimer >= 1):
+                unit = self.Space.CreateAtPosition("Unit1", self.Owner.Transform.Translation)
+                unit.CreepLogic.level = self.player.PlayerLogic.level
+                unit.Transform.Translation += Vec3(0,0,1)
+                self.spawnTimer = 0
+                self.enemyCount += 1
+                
         
 
 Zero.RegisterComponent("EnemySpawnerLogic", EnemySpawnerLogic)

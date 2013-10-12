@@ -53,7 +53,7 @@ class RedTowerLogic:
                 allObjects = self.Space.AllObjects();
                 #Loop through all objects to find a target
                 for obj in allObjects:
-                    if(obj.Name == "Unit"):
+                    if("Unit" in obj.Name):
                         distance = math.sqrt(math.pow((obj.Transform.Translation.x - self.Owner.Transform.Translation.x),2) + math.pow((obj.Transform.Translation.y - self.Owner.Transform.Translation.y),2))
                         #Set the target if in range
                         if (distance < self.range):

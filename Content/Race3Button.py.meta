@@ -1,0 +1,8 @@
+TextContent = 
+{
+	PyScriptBuilder = 
+	{
+		string Name = "Race3Button",
+		uint64 ResourceId = 524f9d4d671a1b62,
+	},
+},

@@ -30,6 +30,7 @@ class MapCreate:
         
         self.Space.FindObjectByName("Race1Button").Destroy()
         self.Space.FindObjectByName("Race2Button").Destroy()
+        self.Space.FindObjectByName("Race3Button").Destroy()
         
         for i in range(self.xsize):
             for j in range(self.ysize):

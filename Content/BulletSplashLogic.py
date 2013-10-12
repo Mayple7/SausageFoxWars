@@ -14,7 +14,7 @@ class BulletSplashLogic:
         allObjects = self.Space.AllObjects();
         #Loops through all objects for splash effect
         for obj in allObjects:
-            if(obj.Name == "Unit"):
+            if("Unit" in obj.Name):
                 distance = math.sqrt(math.pow((obj.Transform.Translation.x - self.Owner.Transform.Translation.x),2) + math.pow((obj.Transform.Translation.y - self.Owner.Transform.Translation.y),2))
 
                 #Deals damage to enemies in range based on how far they are
