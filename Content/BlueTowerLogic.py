@@ -9,13 +9,15 @@ class BlueTowerLogic:
     def Initialize(self, initializer):
         Zero.Connect(self.Space, Events.LogicUpdate, self.onLogicUpdate)
         
+        self.towerstats = self.Space.FindObjectByName("TowerStats").TowerStats
+        
         #Initialize tower stats
-        self.cost = 10
-        self.damage = 1
-        self.cooldown = 1
-        self.range = 10
+        self.cost = self.towerstats.cost3
+        self.damage = self.towerstats.damage3
+        self.cooldown = self.towerstats.cooldown3
+        self.range = self.towerstats.range3
         self.bulletType = 2
-        self.slowSpeed = 0.9
+        self.slowSpeed = 0.8
         
         #Location Variables
         self.xpos = 0

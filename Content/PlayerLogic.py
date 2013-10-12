@@ -7,6 +7,8 @@ class PlayerLogic:
     def Initialize(self, initializer):
         Zero.Connect(self.Space, Events.LogicUpdate, self.onLogicUpdate)
         
+        self.towerstats = self.Space.FindObjectByName("TowerStats")
+        
         #Sets the player's starting stats
         self.lives = 30
         self.income = 30
@@ -14,6 +16,7 @@ class PlayerLogic:
         self.level = 1
         self.levelCount = 0
         self.time = 10
+        self.race = self.towerstats.TowerStats.race
         
         #Sets the variables to edit the HUD
         self.hudspace = Zero.Game.FindSpaceByName("HUDLevel")

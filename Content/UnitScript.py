@@ -68,13 +68,13 @@ class UnitScript:
             #print(str(self.currenty) + " : " + str(self.currentx))
             #print("D: " + str(down) + "L: " + str(left) + "U: " + str(up) + "R: " + str(right))
             if (down == -1):
-                down = 10000
+                down = 1000000
             if (left == -1):
-                left = 10000
+                left = 1000000
             if (up == -1):
-                up = 10000
+                up = 1000000
             if (right == -1):
-                right = 10000
+                right = 1000000
                 
             if(not(GameLogic.GameLogic.node_array[self.currentx][self.currenty].weight == 0)):
                 

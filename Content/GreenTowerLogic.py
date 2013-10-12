@@ -9,11 +9,13 @@ class GreenTowerLogic:
     def Initialize(self, initializer):
         Zero.Connect(self.Space, Events.LogicUpdate, self.onLogicUpdate)
         
+        self.towerstats = self.Space.FindObjectByName("TowerStats").TowerStats
+        
         #Initialize tower stats
-        self.cost = 25
-        self.damage = 2
-        self.cooldown = 1
-        self.range = 5
+        self.cost = self.towerstats.cost2
+        self.damage = self.towerstats.damage2
+        self.cooldown = self.towerstats.cooldown2
+        self.range = self.towerstats.range2
         self.bulletType = 1
         
         #Location Variables

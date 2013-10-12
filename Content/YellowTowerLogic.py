@@ -9,11 +9,13 @@ class YellowTowerLogic:
     def Initialize(self, initializer):
         Zero.Connect(self.Space, Events.LogicUpdate, self.onLogicUpdate)
         
+        self.towerstats = self.Space.FindObjectByName("TowerStats").TowerStats
+        
         #Initialize tower stats
-        self.cost = 50
-        self.damage = 1
-        self.cooldown = 0.1
-        self.range = 10
+        self.cost = self.towerstats.cost4
+        self.damage = self.towerstats.damage4
+        self.cooldown = self.towerstats.cooldown4
+        self.range = self.towerstats.range4
         
         #Location Variables
         self.xpos = 0

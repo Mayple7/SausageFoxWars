@@ -1,0 +1,8 @@
+TextContent = 
+{
+	PyScriptBuilder = 
+	{
+		string Name = "TowerStats",
+		uint64 ResourceId = 524eb41020cd077f,
+	},
+},

@@ -9,11 +9,13 @@ class RedTowerLogic:
     def Initialize(self, initializer):
         Zero.Connect(self.Space, Events.LogicUpdate, self.onLogicUpdate)
         
+        self.towerstats = self.Space.FindObjectByName("TowerStats").TowerStats
+        
         #Initialize tower stats
-        self.cost = 5
-        self.damage = 1
-        self.cooldown = 1
-        self.range = 3
+        self.cost = self.towerstats.cost1
+        self.damage = self.towerstats.damage1
+        self.cooldown = self.towerstats.cooldown1
+        self.range = self.towerstats.range1
         self.bulletType = 0
         
         #Initializes the tower location
