@@ -15,7 +15,7 @@ class UnitScript:
         self.MovingActive = 0
         self.MovingTimer = self.MovementTimer/16
         self.move = Vec3(0,0,0)
-        self.MoveSpeed = 0.5
+        
         
         #Test stuff
         self.testx = 0
@@ -23,6 +23,10 @@ class UnitScript:
         
         #Gets the HUD to reduce lives
         self.player = self.Space.FindObjectByName("Player")
+        self.levelsettings = self.Space.FindObjectByName("LevelSettings")
+        self.health = self.levelsettings.CreepLogic.hparray[self.player.PlayerLogic.level-1]
+        self.speed = self.levelsettings.CreepLogic.speedarray[self.player.PlayerLogic.level-1]
+        self.bounty = self.levelsettings.CreepLogic.bountyarray[self.player.PlayerLogic.level-1]
         
         Zero.Connect(self.Space, Events.LogicUpdate, self.OnLogicUpdate)
         
@@ -37,7 +41,11 @@ class UnitScript:
         GameLogic.GameLogic.refreshWeight()
         
     def OnLogicUpdate(self, UpdateEvent):
-        self.MoveSpeed = self.Owner.CreepLogic.speed
+        if(self.health <= 0):
+            self.player.PlayerLogic.money += self.bounty
+            self.Owner.Destroy()
+            
+        self.Owner.SpriteText.Text = str(round(self.health))
         
         if (self.MovingTimer > 0 and self.MovingActive == 0):
             self.MovingTimer -= UpdateEvent.Dt
@@ -53,7 +61,7 @@ class UnitScript:
         if(Zero.Keyboard.KeyIsPressed(Zero.Keys.R)):
             GameLogic.GameLogic.refreshWeight()
         if(Zero.Keyboard.KeyIsPressed(Zero.Keys.T)):
-            print(GameLogic.GameLogic.count)
+            self.player.PlayerLogic.level = 59
         
         if(self.MovementActive == 1):
             
@@ -86,8 +94,6 @@ class UnitScript:
                         GameLogic.GameLogic.node_array[self.currentx][self.currenty+1].name.Destroy()
                         GameLogic.GameLogic.node_array[self.currentx][self.currenty+1].tower = False
                         GameLogic.GameLogic.node_array[self.currentx][self.currenty+1].name = 0
-                        self.testx = self.currentx
-                        self.testy = self.currenty
                         self.resetWeight()
                     #print("down")
                 elif(left <= down and left <= up and left <= right):
@@ -98,8 +104,6 @@ class UnitScript:
                         GameLogic.GameLogic.node_array[self.currentx-1][self.currenty].name.Destroy()
                         GameLogic.GameLogic.node_array[self.currentx-1][self.currenty].tower = False
                         GameLogic.GameLogic.node_array[self.currentx-1][self.currenty].name = 0
-                        self.testx = self.currentx
-                        self.testy = self.currenty
                         self.resetWeight()
                     #print("left")
                 elif(up <= down and up <= left and up <= right):
@@ -110,8 +114,6 @@ class UnitScript:
                         GameLogic.GameLogic.node_array[self.currentx][self.currenty-1].name.Destroy()
                         GameLogic.GameLogic.node_array[self.currentx][self.currenty-1].tower = False
                         GameLogic.GameLogic.node_array[self.currentx][self.currenty-1].name = 0
-                        self.testx = self.currentx
-                        self.testy = self.currenty
                         self.resetWeight()
                     #print("up")
                 elif(right <= down and right <= left and right <= up):
@@ -122,8 +124,6 @@ class UnitScript:
                         GameLogic.GameLogic.node_array[self.currentx+1][self.currenty].name.Destroy()
                         GameLogic.GameLogic.node_array[self.currentx+1][self.currenty].tower = False
                         GameLogic.GameLogic.node_array[self.currentx+1][self.currenty].name = 0
-                        self.testx = self.currentx
-                        self.testy = self.currenty
                         self.resetWeight()
                     #print("right")
                 #print(self.Owner.Transform.Translation)
@@ -133,12 +133,12 @@ class UnitScript:
                 self.Owner.Destroy()
             self.MovementActive = 0
             self.MovingActive = 1
-            self.MovingTimer = (self.MoveSpeed) / 16
+            self.MovingTimer = (self.speed) / 16
             #print(Vec3(self.currentx, self.currenty, 0))
             
         if (self.MovingActive == 1):
-            self.Owner.Transform.Translation += VectorMath.Vec3((self.move.x)/16, -(self.move.y)/16, 0)
-            self.MovingTimer = (self.MoveSpeed)/16
+            self.Owner.Transform.Translation += VectorMath.Vec3((self.move.x * self.speed), -(self.move.y * self.speed), 0)
+            self.MovingTimer = (self.speed)/16
             self.MovingActive = 0
             
 Zero.RegisterComponent("UnitScript", UnitScript)

@@ -77,7 +77,7 @@ class RedTowerLogic:
                 self.shotTimer = self.cooldown
                 shot = self.Space.CreateAtPosition("RedTowerBullet", VectorMath.Vec3(self.Owner.Transform.Translation.x, self.Owner.Transform.Translation.y, 3))
                 shot.RedTowerBulletLogic.targetedUnit = self.unitTargeted
-                shot.RedTowerBulletLogic.Damage = self.damage
+                shot.RedTowerBulletLogic.damage = self.damage
                 shot.RedTowerBulletLogic.BulletType = self.bulletType
         else:
             self.targeted = False

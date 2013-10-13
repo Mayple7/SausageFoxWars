@@ -11,7 +11,7 @@ class RedTowerBulletLogic:
         #Initializes the bullet logic
         self.Speed = 15
         self.targetedUnit = 0
-        self.Damage = 0
+        self.damage = 0
         self.BulletType = 0 # 0 : normal, 1 : Splash, 2 : slow, 3 : lightning?
         self.slowSpeed = 0
         
@@ -31,19 +31,19 @@ class RedTowerBulletLogic:
         if (otherObject == self.targetedUnit):
             #Normal bullet
             if (self.BulletType == 0):
-                otherObject.CreepLogic.health -= self.Damage
+                otherObject.UnitScript.health -= self.damage
                 self.Owner.Destroy()
             #Splash bullet
             if (self.BulletType == 1):
                 splash = self.Space.CreateAtPosition("BulletSplash",self.Owner.Transform.Translation)
-                splash.BulletSplashLogic.Damage = self.Damage
+                splash.BulletSplashLogic.damage = self.damage
                 self.Owner.Destroy()
             #Slow bullet
             if (self.BulletType == 2):
-                otherObject.CreepLogic.health -= self.Damage
-                otherObject.CreepLogic.slowTimer = otherObject.CreepLogic.slowTime
-                otherObject.CreepLogic.speed = self.slowSpeed
-                otherObject.CreepLogic.slowed = True
+                otherObject.UnitScript.health -= self.damage
+                #otherObject.CreepLogic.slowTimer = otherObject.CreepLogic.slowTime
+                #otherObject.CreepLogic.speed = self.slowSpeed
+                #otherObject.CreepLogic.slowed = True
                 otherObject.UnitScript.MovingTimer * 2
                 self.Owner.Destroy()
             

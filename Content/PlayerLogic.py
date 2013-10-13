@@ -12,7 +12,7 @@ class PlayerLogic:
         #Sets the player's starting stats
         self.lives = 30
         self.income = 30
-        self.money = 30
+        self.money = 60
         self.level = 1
         self.levelCount = 0
         self.time = 10

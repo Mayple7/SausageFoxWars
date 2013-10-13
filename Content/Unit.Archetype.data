@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [14, 3, 1],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -33,9 +33,6 @@ Cog =
 		SpriteGeometryMode GeometryMode = ZPlane,
 	},
 	UnitScript = 
-	{
-	},
-	CreepLogic = 
 	{
 	},
 	SpriteText = 

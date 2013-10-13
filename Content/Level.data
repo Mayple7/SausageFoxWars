@@ -48,6 +48,9 @@ Level =
 		{
 			string LevelforHUD = "52451643377b9cbb:HUDLevel",
 		},
+		CreepLogic = 
+		{
+		},
 	},
 	Cog = 
 	{

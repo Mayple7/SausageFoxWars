@@ -35,7 +35,7 @@ class TowerStats:
         self.cost3 = 25
         self.cost4 = 40
         
-        self.damage1 = 3
+        self.damage1 = 500
         self.damage2 = 2
         self.damage3 = 1
         self.damage4 = 20
