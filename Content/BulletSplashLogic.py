@@ -19,8 +19,8 @@ class BulletSplashLogic:
 
                 #Deals damage to enemies in range based on how far they are
                 if (distance < self.range):
-                    effect = distance / self.range
-                    obj.UnitScript.health -= self.damage - effect
+                    effect = (self.range - distance) / self.range
+                    obj.UnitScript.health -= self.damage * effect
                     
         self.Owner.Destroy();
 

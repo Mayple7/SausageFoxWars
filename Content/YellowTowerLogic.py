@@ -12,10 +12,11 @@ class YellowTowerLogic:
         self.towerstats = self.Space.FindObjectByName("TowerStats").TowerStats
         
         #Initialize tower stats
-        self.cost = self.towerstats.cost4
-        self.damage = self.towerstats.damage4
+        self.cost = self.towerstats.cost4[0]
+        self.damage = self.towerstats.damage4[0]
         self.cooldown = self.towerstats.cooldown4
         self.range = self.towerstats.range4
+        self.bulletType = self.towerstats.bullet4
         
         #Location Variables
         self.xpos = 0

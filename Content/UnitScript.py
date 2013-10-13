@@ -2,6 +2,7 @@ import Zero
 import Events
 import Property
 import VectorMath
+import Color
 
 Vec3 = VectorMath.Vec3
 
@@ -27,6 +28,10 @@ class UnitScript:
         self.health = self.levelsettings.CreepLogic.hparray[self.player.PlayerLogic.level-1]
         self.speed = self.levelsettings.CreepLogic.speedarray[self.player.PlayerLogic.level-1]
         self.bounty = self.levelsettings.CreepLogic.bountyarray[self.player.PlayerLogic.level-1]
+        self.slow = False
+        self.stun = False
+        self.stuntimer = 0
+        self.slowtimer = 0
         
         Zero.Connect(self.Space, Events.LogicUpdate, self.OnLogicUpdate)
         
@@ -41,6 +46,30 @@ class UnitScript:
         GameLogic.GameLogic.refreshWeight()
         
     def OnLogicUpdate(self, UpdateEvent):
+        #Updates the creep if he is slowed or stunned
+        if(self.stun):
+            self.stuntimer += UpdateEvent.Dt
+            self.speed = 0
+            self.Owner.Sprite.Color = Color.Black
+            
+            if(self.stuntimer > 1):
+                self.stun = False
+                self.stuntimer = 0
+                self.Owner.Sprite.Color = Color.Red
+                self.speed = self.levelsettings.CreepLogic.speedarray[self.player.PlayerLogic.level-1]
+        
+        elif(self.slow):
+            self.slowtimer += UpdateEvent.Dt
+            self.speed = self.levelsettings.CreepLogic.speedarray[self.player.PlayerLogic.level-1] * 0.5
+            self.Owner.Sprite.Color = Color.Blue
+            
+            if(self.slowtimer > 2):
+                self.slow = False
+                self.slowtimer = 0
+                self.Owner.Sprite.Color = Color.Red
+                self.speed = self.levelsettings.CreepLogic.speedarray[self.player.PlayerLogic.level-1]
+        
+        #Checks if the creep is dead
         if(self.health <= 0):
             self.player.PlayerLogic.money += self.bounty
             self.Owner.Destroy()

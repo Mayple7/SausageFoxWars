@@ -12,11 +12,11 @@ class GreenTowerLogic:
         self.towerstats = self.Space.FindObjectByName("TowerStats").TowerStats
         
         #Initialize tower stats
-        self.cost = self.towerstats.cost2
-        self.damage = self.towerstats.damage2
+        self.cost = self.towerstats.cost2[0]
+        self.damage = self.towerstats.damage2[0]
         self.cooldown = self.towerstats.cooldown2
         self.range = self.towerstats.range2
-        self.bulletType = 1
+        self.bulletType = self.towerstats.bullet2
         
         #Location Variables
         self.xpos = 0
@@ -76,7 +76,7 @@ class GreenTowerLogic:
                 self.shotTimer = self.cooldown
                 shot = self.Space.CreateAtPosition("RedTowerBullet", VectorMath.Vec3(self.Owner.Transform.Translation.x, self.Owner.Transform.Translation.y, 3))
                 shot.RedTowerBulletLogic.targetedUnit = self.unitTargeted
-                shot.RedTowerBulletLogic.Damage = self.damage
+                shot.RedTowerBulletLogic.damage = self.damage
                 shot.RedTowerBulletLogic.BulletType = self.bulletType
         else:
             self.targeted = False

@@ -108,30 +108,30 @@ class CellLogic:
         #Places a tower at the cell location if it is valid
         self.cellProp = self.GameLogic.GameLogic.node_array[round(self.Owner.Transform.Translation.x)][-round(self.Owner.Transform.Translation.y)]
         
-        if (self.towerChoice == 1 and self.player.money >= self.towerstats.cost1 and not self.cellProp.tower):
+        if (self.towerChoice == 1 and self.player.money >= self.towerstats.cost1[self.towerstats.towerlevel[0]] and not self.cellProp.tower):
             tower = self.Space.CreateAtPosition("RedTower",self.Owner.Transform.Translation)
             tower.Transform.Translation += Vec3(0,0,1)
             tower.RedTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.RedTowerLogic.ypos = -round(tower.Transform.Translation.y)
-            self.player.money -= self.towerstats.cost1
-        elif (self.towerChoice == 2 and self.player.money >= self.towerstats.cost2 and not self.cellProp.tower):
+            self.player.money -= self.towerstats.cost1[self.towerstats.towerlevel[0]]
+        elif (self.towerChoice == 2 and self.player.money >= self.towerstats.cost2[self.towerstats.towerlevel[1]] and not self.cellProp.tower):
             tower = self.Space.CreateAtPosition("BlueTower",self.Owner.Transform.Translation)
             tower.Transform.Translation += Vec3(0,0,1)
             tower.BlueTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.BlueTowerLogic.ypos = -round(tower.Transform.Translation.y)
-            self.player.money -= self.towerstats.cost2
-        elif (self.towerChoice == 3 and self.player.money >= self.towerstats.cost3 and not self.cellProp.tower):
+            self.player.money -= self.towerstats.cost2[self.towerstats.towerlevel[1]]
+        elif (self.towerChoice == 3 and self.player.money >= self.towerstats.cost3[self.towerstats.towerlevel[2]] and not self.cellProp.tower):
             tower = self.Space.CreateAtPosition("GreenTower",self.Owner.Transform.Translation)
             tower.Transform.Translation += Vec3(0,0,1)
             tower.GreenTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.GreenTowerLogic.ypos = -round(tower.Transform.Translation.y)
-            self.player.money -= self.towerstats.cost3
-        elif (self.towerChoice == 4 and self.player.money >= self.towerstats.cost4 and not self.cellProp.tower):
+            self.player.money -= self.towerstats.cost3[self.towerstats.towerlevel[2]]
+        elif (self.towerChoice == 4 and self.player.money >= self.towerstats.cost4[self.towerstats.towerlevel[3]] and not self.cellProp.tower):
             tower = self.Space.CreateAtPosition("YellowTower",self.Owner.Transform.Translation)
             tower.Transform.Translation += Vec3(0,0,1)
             tower.YellowTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.YellowTowerLogic.ypos = -round(tower.Transform.Translation.y)
-            self.player.money -= self.towerstats.cost4
+            self.player.money -= self.towerstats.cost4[self.towerstats.towerlevel[3]]
             
         # TOWER REMOVE
         # Finds the tower at the selected location and removes it for half cash back guaranteed
@@ -149,13 +149,13 @@ class CellLogic:
                     if (ix == removexpos and iy == removeypos and iz == 1):
                         # Get the tower type and give the appropriate money
                         if (i.Name == "RedTower"):
-                            self.player.money += round(self.towerstats.cost1 / 2)
+                            self.player.money += round(self.towerstats.cost1[0] / 2)
                         elif (i.Name == "BlueTower"):
-                            self.player.money += round(self.towerstats.cost2 / 2)
+                            self.player.money += round(self.towerstats.cost2[0] / 2)
                         elif (i.Name == "GreenTower"):
-                            self.player.money += round(self.towerstats.cost3 / 2)
+                            self.player.money += round(self.towerstats.cost3[0] / 2)
                         elif (i.Name == "YellowTower"):
-                            self.player.money += round(self.towerstats.cost4 / 2)
+                            self.player.money += round(self.towerstats.cost4[0] / 2)
                         i.Destroy()
                         
                         #Reset node to blank

@@ -12,7 +12,7 @@ class RedTowerBulletLogic:
         self.Speed = 15
         self.targetedUnit = 0
         self.damage = 0
-        self.BulletType = 0 # 0 : normal, 1 : Splash, 2 : slow, 3 : lightning?
+        self.BulletType = 0 # 0 : normal, 1 : Splash, 2 : slow, 3 : stun
         self.slowSpeed = 0
         
     def onLogicUpdate(self, UpdateEvent):
@@ -41,10 +41,15 @@ class RedTowerBulletLogic:
             #Slow bullet
             if (self.BulletType == 2):
                 otherObject.UnitScript.health -= self.damage
-                #otherObject.CreepLogic.slowTimer = otherObject.CreepLogic.slowTime
-                #otherObject.CreepLogic.speed = self.slowSpeed
-                #otherObject.CreepLogic.slowed = True
+                otherObject.UnitScript.slow = True
+                otherObject.UnitScript.slowtimer = 0
                 otherObject.UnitScript.MovingTimer * 2
+                self.Owner.Destroy()
+            #Stun break
+            if(self.BulletType == 3):
+                otherObject.UnitScript.health -= self.damage
+                otherObject.UnitScript.stun = True
+                otherObject.UnitScript.stuntimer = 0
                 self.Owner.Destroy()
             
 Zero.RegisterComponent("RedTowerBulletLogic", RedTowerBulletLogic)
