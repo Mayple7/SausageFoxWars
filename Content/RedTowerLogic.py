@@ -12,8 +12,8 @@ class RedTowerLogic:
         self.towerstats = self.Space.FindObjectByName("TowerStats").TowerStats
         
         #Initialize tower stats
-        self.cost = self.towerstats.cost1[0]
-        self.damage = self.towerstats.damage1[0]
+        self.cost = self.towerstats.cost1[self.towerstats.towerlevel[0]]
+        self.damage = self.towerstats.damage1[self.towerstats.towerlevel[0]]
         self.cooldown = self.towerstats.cooldown1
         self.range = self.towerstats.range1
         self.bulletType = self.towerstats.bullet1

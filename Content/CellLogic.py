@@ -77,7 +77,7 @@ class CellLogic:
                 
             elif(Zero.Keyboard.KeyIsPressed(Zero.Keys.Five)):
                 self.towerChoice = 5
-                self.select.Transform.Translation = Vec3(self.yellow.Transform.Translation.x + 2, -6, 0)
+                self.select.Transform.Translation = Vec3(self.yellow.Transform.Translation.x + 4, -6, 0)
                     
     def OnButtonDown(self, gamepadEvent):
         pass
@@ -111,17 +111,20 @@ class CellLogic:
         if (self.towerChoice == 1 and self.player.money >= self.towerstats.cost1[self.towerstats.towerlevel[0]] and not self.cellProp.tower):
             tower = self.Space.CreateAtPosition("RedTower",self.Owner.Transform.Translation)
             tower.Transform.Translation += Vec3(0,0,1)
+            tower.RedTowerLogic.cost = self.towerstats.cost1[self.towerstats.towerlevel[0]]
             tower.RedTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.RedTowerLogic.ypos = -round(tower.Transform.Translation.y)
             self.player.money -= self.towerstats.cost1[self.towerstats.towerlevel[0]]
         elif (self.towerChoice == 2 and self.player.money >= self.towerstats.cost2[self.towerstats.towerlevel[1]] and not self.cellProp.tower):
             tower = self.Space.CreateAtPosition("BlueTower",self.Owner.Transform.Translation)
             tower.Transform.Translation += Vec3(0,0,1)
+            tower.BlueTowerLogic.cost = self.towerstats.cost2[self.towerstats.towerlevel[1]]
             tower.BlueTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.BlueTowerLogic.ypos = -round(tower.Transform.Translation.y)
             self.player.money -= self.towerstats.cost2[self.towerstats.towerlevel[1]]
         elif (self.towerChoice == 3 and self.player.money >= self.towerstats.cost3[self.towerstats.towerlevel[2]] and not self.cellProp.tower):
             tower = self.Space.CreateAtPosition("GreenTower",self.Owner.Transform.Translation)
+            tower.GreenTowerLogic.cost = self.towerstats.cost3[self.towerstats.towerlevel[2]]
             tower.Transform.Translation += Vec3(0,0,1)
             tower.GreenTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.GreenTowerLogic.ypos = -round(tower.Transform.Translation.y)
@@ -129,6 +132,7 @@ class CellLogic:
         elif (self.towerChoice == 4 and self.player.money >= self.towerstats.cost4[self.towerstats.towerlevel[3]] and not self.cellProp.tower):
             tower = self.Space.CreateAtPosition("YellowTower",self.Owner.Transform.Translation)
             tower.Transform.Translation += Vec3(0,0,1)
+            tower.YellowTowerLogic.cost = self.towerstats.cost4[self.towerstats.towerlevel[3]]
             tower.YellowTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.YellowTowerLogic.ypos = -round(tower.Transform.Translation.y)
             self.player.money -= self.towerstats.cost4[self.towerstats.towerlevel[3]]
@@ -149,13 +153,13 @@ class CellLogic:
                     if (ix == removexpos and iy == removeypos and iz == 1):
                         # Get the tower type and give the appropriate money
                         if (i.Name == "RedTower"):
-                            self.player.money += round(self.towerstats.cost1[0] / 2)
+                            self.player.money += round(i.RedTowerLogic.cost / 2)
                         elif (i.Name == "BlueTower"):
-                            self.player.money += round(self.towerstats.cost2[0] / 2)
+                            self.player.money += round(i.BlueTowerLogic.cost / 2)
                         elif (i.Name == "GreenTower"):
-                            self.player.money += round(self.towerstats.cost3[0] / 2)
+                            self.player.money += round(i.GreenTowerLogic.cost / 2)
                         elif (i.Name == "YellowTower"):
-                            self.player.money += round(self.towerstats.cost4[0] / 2)
+                            self.player.money += round(i.YellowTowerLogic.cost / 2)
                         i.Destroy()
                         
                         #Reset node to blank
