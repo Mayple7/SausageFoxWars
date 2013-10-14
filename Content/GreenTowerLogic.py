@@ -12,9 +12,9 @@ class GreenTowerLogic:
         self.towerstats = self.Space.FindObjectByName("TowerStats").TowerStats
         
         #Initialize tower stats
-        self.cost = self.towerstats.cost2[0]
-        self.damage = self.towerstats.damage2[0]
-        self.cooldown = self.towerstats.cooldown2
+        self.cost = self.towerstats.cost2[self.towerstats.towerlevel[1]]
+        self.damage = self.towerstats.damage2[self.towerstats.towerlevel[1]]
+        self.cooldown = self.towerstats.cooldown2[self.towerstats.towerlevel[1]]
         self.range = self.towerstats.range2
         self.bulletType = self.towerstats.bullet2
         

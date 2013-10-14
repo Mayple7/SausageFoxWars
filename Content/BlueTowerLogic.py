@@ -12,9 +12,9 @@ class BlueTowerLogic:
         self.towerstats = self.Space.FindObjectByName("TowerStats").TowerStats
         
         #Initialize tower stats
-        self.cost = self.towerstats.cost3[0]
-        self.damage = self.towerstats.damage3[0]
-        self.cooldown = self.towerstats.cooldown3
+        self.cost = self.towerstats.cost3[self.towerstats.towerlevel[2]]
+        self.damage = self.towerstats.damage3[self.towerstats.towerlevel[2]]
+        self.cooldown = self.towerstats.cooldown3[self.towerstats.towerlevel[2]]
         self.range = self.towerstats.range3
         self.bulletType = self.towerstats.bullet3
         self.slowSpeed = 0.8

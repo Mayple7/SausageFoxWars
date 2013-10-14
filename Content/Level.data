@@ -212,7 +212,7 @@ Level =
 			bool Active = true,
 			bool CaptureMouse = true,
 		},
-		Race1Button = 
+		Race2Button = 
 		{
 		},
 	},
