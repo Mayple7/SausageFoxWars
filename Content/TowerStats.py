@@ -33,6 +33,8 @@ class TowerStats:
         self.bullet3 = 3
         self.bullet4 = 0
         
+        self.Space.CreateAtPosition("Upgrade1", VectorMath.Vec3(9.5, -10.5, 0))
+        
     def setRace1(self):
         self.race = 1
         
@@ -40,23 +42,51 @@ class TowerStats:
         for i in range(4):
             self.towerlevel[i] = 0
         
-        #Race 1 level 1 tower costs
         self.cost1[0] = 10
+        self.cost1[1] = 10
+        self.cost1[2] = 10
+        self.cost1[3] = 10
+        
+        self.damage1[0] = 0
+        self.damage1[1] = 20
+        self.damage1[2] = 40
+        self.damage1[3] = 100
+        
+        self.cooldown1[0] = 1.5
+        self.cooldown1[1] = 1.25
+        self.cooldown1[2] = 1
+        self.cooldown1[3] = 0.75
+        
+        
+        #Race 1 level 1 tower costs
         self.cost2[0] = 15
         self.cost3[0] = 25
         self.cost4[0] = 40
         
+        #Race 1 level 1 tower costs
+        self.cost2[1] = 15
+        self.cost3[1] = 25
+        self.cost4[1] = 40
+        
         #Race 1 level 1 tower damage
-        self.damage1[0] = 500
-        self.damage2[0] = 10
-        self.damage3[0] = 1
-        self.damage4[0] = 20
+        self.damage2[0] = 0
+        self.damage3[0] = 0
+        self.damage4[0] = 0
+        
+        #Race 1 level 2 tower damage
+        self.damage2[1] = 100
+        self.damage3[1] = 100
+        self.damage4[1] = 100
         
         #Race 1 level 1 tower cooldowns
-        self.cooldown1[0] = 1.5
         self.cooldown2[0] = 1.75
         self.cooldown3[0] = 2
         self.cooldown4[0] = 4
+        
+        #Race 1 level 1 tower cooldowns
+        self.cooldown2[1] = 1.75
+        self.cooldown3[1] = 2
+        self.cooldown4[1] = 4
         
         #Race 1 level 1 tower range
         self.range1 = 5

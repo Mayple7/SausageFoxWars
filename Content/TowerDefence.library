@@ -46,6 +46,8 @@ ContentLibrary =
 		"Unit2.Archetype.data",
 		"Unit3.Cog.data",
 		"UnitScript.py",
+		"Upgrade1.Archetype.data",
+		"Upgrade1Script.py",
 		"UpgradeBasic.py",
 		"Wall.Archetype.data",
 		"YellowTower.Archetype.data",
