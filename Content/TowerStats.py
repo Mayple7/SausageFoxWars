@@ -42,6 +42,7 @@ class TowerStats:
         for i in range(4):
             self.towerlevel[i] = 0
         
+        #Race 1 Tower 1 Scaling
         self.cost1[0] = 10
         self.cost1[1] = 10
         self.cost1[2] = 10
@@ -57,36 +58,53 @@ class TowerStats:
         self.cooldown1[2] = 1
         self.cooldown1[3] = 0.75
         
+        #Race 1 Tower 2 Scaling
+        self.cost2[0] = 10
+        self.cost2[1] = 10
+        self.cost2[2] = 10
+        self.cost2[3] = 10
         
-        #Race 1 level 1 tower costs
-        self.cost2[0] = 15
-        self.cost3[0] = 25
-        self.cost4[0] = 40
-        
-        #Race 1 level 1 tower costs
-        self.cost2[1] = 15
-        self.cost3[1] = 25
-        self.cost4[1] = 40
-        
-        #Race 1 level 1 tower damage
         self.damage2[0] = 0
+        self.damage2[1] = 20
+        self.damage2[2] = 40
+        self.damage2[3] = 100
+        
+        self.cooldown2[0] = 1.5
+        self.cooldown2[1] = 1.25
+        self.cooldown2[2] = 1
+        self.cooldown2[3] = 0.75
+        
+        #Race 1 Tower 3 Scaling
+        self.cost3[0] = 10
+        self.cost3[1] = 10
+        self.cost3[2] = 10
+        self.cost3[3] = 10
+        
         self.damage3[0] = 0
+        self.damage3[1] = 20
+        self.damage3[2] = 40
+        self.damage3[3] = 100
+        
+        self.cooldown3[0] = 1.5
+        self.cooldown3[1] = 1.25
+        self.cooldown3[2] = 1
+        self.cooldown3[3] = 0.75
+        
+        #Race 1 Tower 4 Scaling
+        self.cost4[0] = 10
+        self.cost4[1] = 10
+        self.cost4[2] = 10
+        self.cost4[3] = 10
+        
         self.damage4[0] = 0
+        self.damage4[1] = 20
+        self.damage4[2] = 40
+        self.damage4[3] = 100
         
-        #Race 1 level 2 tower damage
-        self.damage2[1] = 100
-        self.damage3[1] = 100
-        self.damage4[1] = 100
-        
-        #Race 1 level 1 tower cooldowns
-        self.cooldown2[0] = 1.75
-        self.cooldown3[0] = 2
-        self.cooldown4[0] = 4
-        
-        #Race 1 level 1 tower cooldowns
-        self.cooldown2[1] = 1.75
-        self.cooldown3[1] = 2
-        self.cooldown4[1] = 4
+        self.cooldown4[0] = 1.5
+        self.cooldown4[1] = 1.25
+        self.cooldown4[2] = 1
+        self.cooldown4[3] = 0.75
         
         #Race 1 level 1 tower range
         self.range1 = 5
@@ -107,31 +125,77 @@ class TowerStats:
         for i in range(4):
             self.towerlevel[i] = 0
         
-        #Race 1 level 1 tower costs
+        #Race 2 Tower 1 Scaling
         self.cost1[0] = 10
-        self.cost2[0] = 15
-        self.cost3[0] = 25
-        self.cost4[0] = 40
+        self.cost1[1] = 10
+        self.cost1[2] = 10
+        self.cost1[3] = 10
         
-        #Race 1 level 1 tower damage
-        self.damage1[0] = 5
-        self.damage2[0] = 101
-        self.damage3[0] = 1
-        self.damage4[0] = 20
+        self.damage1[0] = 0
+        self.damage1[1] = 20
+        self.damage1[2] = 40
+        self.damage1[3] = 100
         
-        #Race 1 level 1 tower cooldowns
         self.cooldown1[0] = 1.5
-        self.cooldown2[0] = 1.75
-        self.cooldown3[0] = 2
-        self.cooldown4[0] = 4
+        self.cooldown1[1] = 1.25
+        self.cooldown1[2] = 1
+        self.cooldown1[3] = 0.75
         
-        #Race 1 level 1 tower range
+        #Race 2 Tower 2 Scaling
+        self.cost2[0] = 10
+        self.cost2[1] = 10
+        self.cost2[2] = 10
+        self.cost2[3] = 10
+        
+        self.damage2[0] = 0
+        self.damage2[1] = 20
+        self.damage2[2] = 40
+        self.damage2[3] = 100
+        
+        self.cooldown2[0] = 1.5
+        self.cooldown2[1] = 1.25
+        self.cooldown2[2] = 1
+        self.cooldown2[3] = 0.75
+        
+        #Race 2 Tower 3 Scaling
+        self.cost3[0] = 10
+        self.cost3[1] = 10
+        self.cost3[2] = 10
+        self.cost3[3] = 10
+        
+        self.damage3[0] = 0
+        self.damage3[1] = 20
+        self.damage3[2] = 40
+        self.damage3[3] = 100
+        
+        self.cooldown3[0] = 1.5
+        self.cooldown3[1] = 1.25
+        self.cooldown3[2] = 1
+        self.cooldown3[3] = 0.75
+        
+        #Race 2 Tower 4 Scaling
+        self.cost4[0] = 10
+        self.cost4[1] = 10
+        self.cost4[2] = 10
+        self.cost4[3] = 10
+        
+        self.damage4[0] = 0
+        self.damage4[1] = 20
+        self.damage4[2] = 40
+        self.damage4[3] = 100
+        
+        self.cooldown4[0] = 1.5
+        self.cooldown4[1] = 1.25
+        self.cooldown4[2] = 1
+        self.cooldown4[3] = 0.75
+        
+        #Race 2 level 1 tower range
         self.range1 = 5
         self.range2 = 4
         self.range3 = 3
         self.range4 = 8
         
-        #Race 1 bullet types
+        #Race 2 bullet types
         self.bullet1 = 0
         self.bullet2 = 1
         self.bullet3 = 3
@@ -143,32 +207,78 @@ class TowerStats:
         #Initialize the tower levels to 0
         for i in range(4):
             self.towerlevel[i] = 0
-        
-        #Race 1 level 1 tower costs
+            
+        #Race 3 Tower 1 Scaling
         self.cost1[0] = 10
-        self.cost2[0] = 15
-        self.cost3[0] = 25
-        self.cost4[0] = 40
+        self.cost1[1] = 10
+        self.cost1[2] = 10
+        self.cost1[3] = 10
         
-        #Race 1 level 1 tower damage
-        self.damage1[0] = 5
-        self.damage2[0] = 1
-        self.damage3[0] = 100
-        self.damage4[0] = 20
+        self.damage1[0] = 0
+        self.damage1[1] = 20
+        self.damage1[2] = 40
+        self.damage1[3] = 100
         
-        #Race 1 level 1 tower cooldowns
         self.cooldown1[0] = 1.5
-        self.cooldown2[0] = 1.75
-        self.cooldown3[0] = 2
-        self.cooldown4[0] = 4
+        self.cooldown1[1] = 1.25
+        self.cooldown1[2] = 1
+        self.cooldown1[3] = 0.75
         
-        #Race 1 level 1 tower range
+        #Race 3 Tower 2 Scaling
+        self.cost2[0] = 10
+        self.cost2[1] = 10
+        self.cost2[2] = 10
+        self.cost2[3] = 10
+        
+        self.damage2[0] = 0
+        self.damage2[1] = 20
+        self.damage2[2] = 40
+        self.damage2[3] = 100
+        
+        self.cooldown2[0] = 1.5
+        self.cooldown2[1] = 1.25
+        self.cooldown2[2] = 1
+        self.cooldown2[3] = 0.75
+        
+        #Race 3 Tower 3 Scaling
+        self.cost3[0] = 10
+        self.cost3[1] = 10
+        self.cost3[2] = 10
+        self.cost3[3] = 10
+        
+        self.damage3[0] = 0
+        self.damage3[1] = 20
+        self.damage3[2] = 40
+        self.damage3[3] = 100
+        
+        self.cooldown3[0] = 1.5
+        self.cooldown3[1] = 1.25
+        self.cooldown3[2] = 1
+        self.cooldown3[3] = 0.75
+        
+        #Race 3 Tower 4 Scaling
+        self.cost4[0] = 10
+        self.cost4[1] = 10
+        self.cost4[2] = 10
+        self.cost4[3] = 10
+        
+        self.damage4[0] = 0
+        self.damage4[1] = 20
+        self.damage4[2] = 40
+        self.damage4[3] = 100
+        
+        self.cooldown4[0] = 1.5
+        self.cooldown4[1] = 1.25
+        self.cooldown4[2] = 1
+        self.cooldown4[3] = 0.75
+        
+        #Race 3 level 1 tower range
         self.range1 = 5
         self.range2 = 4
         self.range3 = 3
         self.range4 = 8
         
-        #Race 1 bullet types
+        #Race 3 bullet types
         self.bullet1 = 0
         self.bullet2 = 1
         self.bullet3 = 3
