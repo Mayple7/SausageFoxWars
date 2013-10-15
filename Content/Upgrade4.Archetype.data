@@ -15,7 +15,7 @@ Cog =
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [3.79252, 1.48686, 1.48686],
+		Vec3 Scale = [2, 2, 1.48686],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
@@ -49,5 +49,20 @@ Cog =
 	},
 	Upgrade4Script = 
 	{
+	},
+	SpriteText = 
+	{
+		SpriteGeometryMode GeometryMode = ZPlane,
+		TextPositionMode Position = Centered,
+		string FontName = "4e7bac697bec55c5:Verdana",
+		uint FontSize = 10,
+		Vec4 Color = [0, 0, 0, 1],
+		bool Visible = true,
+		string Text = "",
+		bool OnTop = true,
+		BlendMode BlendMode = Alpha,
+		Vec2 Size = [0, 0],
+		TextAlign Align = Left,
+		float PixelsPerUnit = 64,
 	},
 },

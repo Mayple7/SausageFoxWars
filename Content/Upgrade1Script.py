@@ -11,9 +11,12 @@ class Upgrade1Script:
         
     def OnMouseUp(self, MouseEvent):
         self.player = self.Space.FindObjectByName("Player").PlayerLogic
-        if(self.towerstats.towerlevel[0] < 3 and self.player.money > self.towerstats.upgradecost1[self.towerstats.towerlevel[0]]):
-            self.player.money -= self.towerstats.upgradecost1[0]
+        if(self.towerstats.towerlevel[0] < 3 and self.player.money >= self.towerstats.upgradecost1[self.towerstats.towerlevel[0]]):
+            self.player.money -= self.towerstats.upgradecost1[self.towerstats.towerlevel[0]]
             self.towerstats.towerlevel[0] += 1
-            self.Owner.SpriteText.Text = str(self.towerstats.upgradecost1[self.towerstats.towerlevel[0]]) + "g"
+            if(self.towerstats.towerlevel[0] == 3):
+                self.Owner.Destroy()
+            else:
+                self.Owner.SpriteText.Text = str(self.towerstats.upgradecost1[self.towerstats.towerlevel[0]]) + "g"
 
 Zero.RegisterComponent("Upgrade1Script", Upgrade1Script)
