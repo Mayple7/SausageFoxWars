@@ -111,6 +111,7 @@ class CellLogic:
         if (self.towerChoice == 1 and self.player.money >= self.towerstats.cost1[self.towerstats.towerlevel[0]] and not self.cellProp.tower):
             tower = self.Space.CreateAtPosition("RedTower",self.Owner.Transform.Translation)
             tower.Transform.Translation += Vec3(0,0,1)
+            tower.Sprite.Color = self.towerstats.color1[self.towerstats.towerlevel[0]]
             tower.RedTowerLogic.cost = self.towerstats.cost1[self.towerstats.towerlevel[0]]
             tower.RedTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.RedTowerLogic.ypos = -round(tower.Transform.Translation.y)
@@ -118,6 +119,7 @@ class CellLogic:
         elif (self.towerChoice == 2 and self.player.money >= self.towerstats.cost2[self.towerstats.towerlevel[1]] and not self.cellProp.tower):
             tower = self.Space.CreateAtPosition("BlueTower",self.Owner.Transform.Translation)
             tower.Transform.Translation += Vec3(0,0,1)
+            tower.Sprite.Color = self.towerstats.color3[self.towerstats.towerlevel[1]]
             tower.BlueTowerLogic.cost = self.towerstats.cost2[self.towerstats.towerlevel[1]]
             tower.BlueTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.BlueTowerLogic.ypos = -round(tower.Transform.Translation.y)
@@ -126,12 +128,14 @@ class CellLogic:
             tower = self.Space.CreateAtPosition("GreenTower",self.Owner.Transform.Translation)
             tower.GreenTowerLogic.cost = self.towerstats.cost3[self.towerstats.towerlevel[2]]
             tower.Transform.Translation += Vec3(0,0,1)
+            tower.Sprite.Color = self.towerstats.color2[self.towerstats.towerlevel[2]]
             tower.GreenTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.GreenTowerLogic.ypos = -round(tower.Transform.Translation.y)
             self.player.money -= self.towerstats.cost3[self.towerstats.towerlevel[2]]
         elif (self.towerChoice == 4 and self.player.money >= self.towerstats.cost4[self.towerstats.towerlevel[3]] and not self.cellProp.tower):
             tower = self.Space.CreateAtPosition("YellowTower",self.Owner.Transform.Translation)
             tower.Transform.Translation += Vec3(0,0,1)
+            tower.Sprite.Color = self.towerstats.color4[self.towerstats.towerlevel[3]]
             tower.YellowTowerLogic.cost = self.towerstats.cost4[self.towerstats.towerlevel[3]]
             tower.YellowTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.YellowTowerLogic.ypos = -round(tower.Transform.Translation.y)

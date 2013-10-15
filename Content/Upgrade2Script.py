@@ -9,7 +9,7 @@ class Upgrade2Script:
         self.towerstats = self.Space.FindObjectByName("TowerStats").TowerStats
         
     def OnMouseUp(self, MouseEvent):
-        if(self.towerstats.towerlevel[0] < 3):
-            self.towerstats.towerlevel[0] += 1
+        if(self.towerstats.towerlevel[1] < 3):
+            self.towerstats.towerlevel[1] += 1
 
 Zero.RegisterComponent("Upgrade2Script", Upgrade2Script)

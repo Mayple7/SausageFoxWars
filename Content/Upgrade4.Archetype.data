@@ -6,16 +6,16 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "Upgrade1",
+		string Name = "Upgrade4",
 	},
 	Archetyped = 
 	{
-		string Name = "524b5120834956a2:Upgrade1",
+		string Name = "524ba7936ae9379d:Upgrade4",
 	},
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [3, 3, 1.48686],
+		Vec3 Scale = [3.79252, 1.48686, 1.48686],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
@@ -23,7 +23,7 @@ Cog =
 		string SpriteSource = "5275aa4d802dd6dc:Square",
 		bool FlipX = false,
 		bool FlipY = false,
-		Vec4 Color = [1, 0, 0, 1],
+		Vec4 Color = [0.95, 1, 0, 1],
 		bool Visible = true,
 		bool OnTop = false,
 		bool AnimationActive = true,
@@ -47,22 +47,7 @@ Cog =
 		bool Active = true,
 		bool CaptureMouse = true,
 	},
-	Upgrade1Script = 
+	Upgrade4Script = 
 	{
-	},
-	SpriteText = 
-	{
-		SpriteGeometryMode GeometryMode = ZPlane,
-		TextPositionMode Position = Centered,
-		string FontName = "4e7bac697bec55c5:Verdana",
-		uint FontSize = 10,
-		Vec4 Color = [0, 0, 0, 1],
-		bool Visible = true,
-		string Text = "0g",
-		bool OnTop = true,
-		BlendMode BlendMode = Alpha,
-		Vec2 Size = [0, 0],
-		TextAlign Align = Center,
-		float PixelsPerUnit = 64,
 	},
 },
