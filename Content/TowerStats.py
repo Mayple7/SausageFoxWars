@@ -55,14 +55,14 @@ class TowerStats:
         
         #Race 1 Tower 1 Scaling
         self.cost1[0] = 10
-        self.cost1[1] = 20
-        self.cost1[2] = 30
-        self.cost1[3] = 40
+        self.cost1[1] = 100
+        self.cost1[2] = 300
+        self.cost1[3] = 800
         
-        self.damage1[0] = 0
-        self.damage1[1] = 20
-        self.damage1[2] = 40
-        self.damage1[3] = 100
+        self.damage1[0] = 10
+        self.damage1[1] = 40
+        self.damage1[2] = 80
+        self.damage1[3] = 160
         
         self.cooldown1[0] = 1.5
         self.cooldown1[1] = 1.25
@@ -74,9 +74,9 @@ class TowerStats:
         self.color1[2] = Color.DarkSalmon
         self.color1[3] = Color.IndianRed
         
-        self.upgradecost1[0] = 100
-        self.upgradecost1[1] = 300
-        self.upgradecost1[2] = 500
+        self.upgradecost1[0] = 300
+        self.upgradecost1[1] = 600
+        self.upgradecost1[2] = 1200
         
         #Race 1 Tower 2 Scaling
         self.cost2[0] = 10

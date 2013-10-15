@@ -12,7 +12,7 @@ class PlayerLogic:
         #Sets the player's starting stats
         self.lives = 30
         self.income = 30
-        self.money = 100000
+        self.money = 60
         self.level = 1
         self.levelCount = 0
         self.time = 10
@@ -26,6 +26,14 @@ class PlayerLogic:
         self.timerText = self.hudspace.FindObjectByName("Timer")
         self.livesText = self.hudspace.FindObjectByName("Lives")
         
+        self.moneyText.SpriteText.Visible = True
+        self.incomeText.SpriteText.Visible = True
+        self.levelText.SpriteText.Visible = True
+        self.timerText.SpriteText.Visible = True
+        self.livesText.SpriteText.Visible = True
+        self.hudspace.FindObjectByName("Selector").Sprite.Visible = True
+        self.hudspace.FindObjectByName("TowerUI").Sprite.Visible = True
+        self.hudspace.FindObjectByName("LevelTimer").SpriteText.Visible = True
         
     def onLogicUpdate(self, UpdateEvent):
         self.time -= UpdateEvent.Dt
