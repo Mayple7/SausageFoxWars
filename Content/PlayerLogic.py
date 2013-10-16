@@ -38,6 +38,9 @@ class PlayerLogic:
     def onLogicUpdate(self, UpdateEvent):
         self.time -= UpdateEvent.Dt
         
+        if(Zero.Keyboard.KeyIsPressed(Zero.Keys.PageDown)):
+            self.money += 10000
+        
         #Timer to give the player income and increase the level
         if(self.time <= 0):
             self.money += self.income

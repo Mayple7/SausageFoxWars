@@ -111,6 +111,7 @@ class CellLogic:
         if (self.towerChoice == 1 and self.player.money >= self.towerstats.cost1[self.towerstats.towerlevel[0]] and not self.cellProp.tower):
             tower = self.Space.CreateAtPosition("RedTower",self.Owner.Transform.Translation)
             tower.Transform.Translation += Vec3(0,0,1)
+            #tower.Sprite.SpriteSource = self.towerstats.sprite1[self.towerstats.towerlevel[0]]
             tower.Sprite.Color = self.towerstats.color1[self.towerstats.towerlevel[0]]
             tower.RedTowerLogic.cost = self.towerstats.cost1[self.towerstats.towerlevel[0]]
             tower.RedTowerLogic.xpos = round(tower.Transform.Translation.x)

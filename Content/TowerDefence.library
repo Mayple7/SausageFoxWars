@@ -61,6 +61,8 @@ ContentLibrary =
 		"race_button.SpriteSource.png",
 		"race_button2.SpriteSource.png",
 		"race_button3.SpriteSource.png",
+		"tower1.SpriteSource.png",
+		"tower2.png",
 	],
 	uint64 LibraryId = 52b8c1e315497fdf,
 	string SourceControlType = "",
