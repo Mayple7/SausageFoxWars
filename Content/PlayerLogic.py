@@ -26,9 +26,20 @@ class PlayerLogic:
         self.timerText = self.hudspace.FindObjectByName("Timer")
         self.livesText = self.hudspace.FindObjectByName("Lives")
         
+        self.moneyText.SpriteText.Visible = True
+        self.incomeText.SpriteText.Visible = True
+        self.levelText.SpriteText.Visible = True
+        self.timerText.SpriteText.Visible = True
+        self.livesText.SpriteText.Visible = True
+        self.hudspace.FindObjectByName("Selector").Sprite.Visible = True
+        self.hudspace.FindObjectByName("TowerUI").Sprite.Visible = True
+        self.hudspace.FindObjectByName("LevelTimer").SpriteText.Visible = True
         
     def onLogicUpdate(self, UpdateEvent):
         self.time -= UpdateEvent.Dt
+        
+        if(Zero.Keyboard.KeyIsPressed(Zero.Keys.PageDown)):
+            self.money += 10000
         
         #Timer to give the player income and increase the level
         if(self.time <= 0):
