@@ -9,6 +9,8 @@ class TowerLogic:
         self.currentx = round(self.Owner.Transform.Translation.x)
         self.currenty = round(-1*(self.Owner.Transform.Translation.y))
         
+        self.cost = 0
+        
         #Sets the cell to have a tower and name
         GameLogic =self.Space.FindObjectByName("GameLogic")
         GameLogic.GameLogic.node_array[self.currentx][self.currenty].tower = True
