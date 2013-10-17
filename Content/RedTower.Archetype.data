@@ -38,19 +38,4 @@ Cog =
 	RedTowerLogic = 
 	{
 	},
-	BoxCollider = 
-	{
-		bool Ghost = false,
-		bool SendsMessages = true,
-		bool Seamless = false,
-		string MaterialName = "4faa6050b8692851:HardMaterial",
-		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0, 0, 0],
-		Vec3 Size = [0.5, 0.5, 0.5],
-	},
-	Reactive = 
-	{
-		bool Active = true,
-		bool CaptureMouse = true,
-	},
 },
