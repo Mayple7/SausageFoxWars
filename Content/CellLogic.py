@@ -105,6 +105,8 @@ class CellLogic:
     def OnMouseUp(self, MouseEvent):
         self.HoverState()
         
+        print(self.Owner.Name)
+        
         #Places a tower at the cell location if it is valid
         self.cellProp = self.GameLogic.GameLogic.node_array[round(self.Owner.Transform.Translation.x)][-round(self.Owner.Transform.Translation.y)]
         
@@ -153,16 +155,15 @@ class CellLogic:
             removeypos = -round(self.Owner.Transform.Translation.y)
             # Get the list of all obj in the space
             allObjects = self.Space.AllObjects()
-            for i in allObjects:
-                if (i.Sprite):
+            for cog in allObjects:
+                if (cog.Sprite):
                     # Nasty hack to retrieve the selected turret
-                    ix = round(i.Transform.Translation.x)
-                    iy = -round(i.Transform.Translation.y)
-                    iz = round(i.Transform.Translation.z)
-                    if (ix == removexpos and iy == removeypos and iz == 1):
+                    cogx = round(cog.Transform.Translation.x)
+                    cogy = -round(cog.Transform.Translation.y)
+                    cogz = round(cog.Transform.Translation.z)
+                    if (cogx == removexpos and cogy == removeypos and cogz == 1):
                         # Get the tower type and give the appropriate money
                         self.player.money += round(i.TowerLogic.cost / 2)
-                        i.Destroy()
                         
                         #Reset node to blank
                         GameLogic = self.Space.FindObjectByName("GameLogic")
