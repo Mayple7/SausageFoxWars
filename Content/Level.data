@@ -158,13 +158,13 @@ Level =
 			Vec3 Offset = [0, 0, 0],
 			Vec3 Size = [2.375, 0.8, 0.5],
 		},
+		Race1Button = 
+		{
+		},
 		Reactive = 
 		{
 			bool Active = true,
 			bool CaptureMouse = true,
-		},
-		Race1Button = 
-		{
 		},
 	},
 	Cog = 

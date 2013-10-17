@@ -105,6 +105,8 @@ class CellLogic:
     def OnMouseUp(self, MouseEvent):
         self.HoverState()
         
+        print(self.Owner.Name)
+        
         #Places a tower at the cell location if it is valid
         self.cellProp = self.GameLogic.GameLogic.node_array[round(self.Owner.Transform.Translation.x)][-round(self.Owner.Transform.Translation.y)]
         
