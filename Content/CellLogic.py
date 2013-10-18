@@ -58,7 +58,7 @@ class CellLogic:
             self.GameLogic.GameLogic.node_array[self.currentx][self.currenty].cellName = self.Owner
         
         
-        #self.Owner.SpriteText.Text = str(self.GameLogic.GameLogic.node_array[round(self.Owner.Transform.Translation.x)][-round(self.Owner.Transform.Translation.y)].weight)
+        self.Owner.SpriteText.Text = str(self.GameLogic.GameLogic.node_array[round(self.Owner.Transform.Translation.x)][-round(self.Owner.Transform.Translation.y)].weight)
         
         #Changes the tower being placed based on input
         if (self.InputType):

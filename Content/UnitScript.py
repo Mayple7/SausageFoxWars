@@ -3,6 +3,7 @@ import Events
 import Property
 import VectorMath
 import Color
+import random
 
 Vec3 = VectorMath.Vec3
 
@@ -33,11 +34,16 @@ class UnitScript:
         self.stuntimer = 0
         self.slowtimer = 0
         
+        # Random
+        self.randomPrevelent = 0
+        if (random.randint(0,1)):
+            self.randomPrevelent = 1
+        
         Zero.Connect(self.Space, Events.LogicUpdate, self.OnLogicUpdate)
         
     def resetWeight(self):
         #Resets all the weights and refreshes the grid
-        GameLogic =self.Space.FindObjectByName("GameLogic")
+        GameLogic = self.Space.FindObjectByName("GameLogic")
         for i in range(1, GameLogic.GameLogic.xsize - 1):
             for j in range(1, GameLogic.GameLogic.ysize - 1):
                     GameLogic.GameLogic.node_array[i][j].weight = -2
@@ -114,8 +120,7 @@ class UnitScript:
                 right = 1000000
                 
             if(not(GameLogic.GameLogic.node_array[self.currentx][self.currenty].weight == 0)):
-                
-                if(down <= left and down <= up and down <= right):
+                if(down <= left and (down < up or (self.randomPrevelent and down == up)) and down <= right):
                     if (GameLogic.GameLogic.node_array[self.currentx][self.currenty+1].name == 0):
                         self.currenty += 1
                     else:
