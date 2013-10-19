@@ -30,7 +30,7 @@ class CellLogic:
         
         #Initializes the cell color highlights
         self.DefaultColor = Vec4(1,1,1,1)
-        self.HoverColor = Vec4(.75,.75,.75,.75)
+        self.HoverColor = Vec4(1,1,1,.25)
         self.DownColor = Vec4(.5,.5,.5,.5)
         self.towerChoice = 1
         self.towerChoiceMax = 4
@@ -49,7 +49,10 @@ class CellLogic:
         self.green = self.hudspace.FindObjectByName("GreenTower")
         self.yellow = self.hudspace.FindObjectByName("YellowTower")
         
+        self.hoverZ = self.Owner.Transform.Translation.z
+        
         self.DefaultState()
+        
     
     def OnLogicUpdate(self, UpdateEvent):
         
@@ -86,9 +89,11 @@ class CellLogic:
             
     def DefaultState(self):
         self.Owner.Sprite.Color = self.DefaultColor
+        self.Owner.Transform.Translation = VectorMath.Vec3(self.Owner.Transform.Translation.x,self.Owner.Transform.Translation.y,self.hoverZ)
         
     def HoverState(self):
         self.Owner.Sprite.Color = self.HoverColor
+        self.Owner.Transform.Translation = VectorMath.Vec3(self.Owner.Transform.Translation.x,self.Owner.Transform.Translation.y,self.hoverZ+5)
         
     def DownState(self):
         self.Owner.Sprite.Color = self.DownColor
@@ -104,7 +109,7 @@ class CellLogic:
         
     def OnMouseUp(self, MouseEvent):
         self.HoverState()
-        
+        self.Owner.Transform.Translation = VectorMath.Vec3(self.Owner.Transform.Translation.x,self.Owner.Transform.Translation.y,self.hoverZ)
         #Places a tower at the cell location if it is valid
         self.cellProp = self.GameLogic.GameLogic.node_array[round(self.Owner.Transform.Translation.x)][-round(self.Owner.Transform.Translation.y)]
         
@@ -180,7 +185,7 @@ class CellLogic:
                         GameLogic.GameLogic.count = 0
                         GameLogic.GameLogic.node_array[GameLogic.GameLogic.endx][GameLogic.GameLogic.endy].weight = 0
                         GameLogic.GameLogic.refreshWeight()
-        
+        self.Owner.Transform.Translation = VectorMath.Vec3(self.Owner.Transform.Translation.x,self.Owner.Transform.Translation.y,self.hoverZ+5)
         
         
         

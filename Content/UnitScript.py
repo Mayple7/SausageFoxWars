@@ -4,6 +4,7 @@ import Property
 import VectorMath
 import Color
 import random
+import math
 
 Vec3 = VectorMath.Vec3
 
@@ -35,6 +36,9 @@ class UnitScript:
         self.stun = False
         self.stuntimer = 0
         self.slowtimer = 0
+        self.Frame = 0
+        self.FrameTimer = self.speed
+        self.numberOfFrames = 4
         
         # Random
         self.randomPrevelent = 0
@@ -81,7 +85,13 @@ class UnitScript:
     def OnLogicUpdate(self, UpdateEvent):
         # Game logic location
         GameLogic = self.Space.FindObjectByName("GameLogic")
+        self.FrameTimer -= UpdateEvent.Dt
         
+        if (self.FrameTimer <= 0):
+            self.Frame += 1
+            self.FrameTimer = self.speed*5
+        if (self.Frame >= self.numberOfFrames):
+            self.Frame = 0
         # Tower effects (Stun or Slow)
         self.TowerEffect(UpdateEvent)
         
@@ -129,34 +139,30 @@ class UnitScript:
                 if (down <= left and (down < up or (self.randomPrevelent and down == up)) and down <= right):
                     if (GameLogic.GameLogic.node_array[self.currentx][self.currenty + 1].name == 0):
                         self.currenty += 1
-                        self.direction = 0
+                        self.direction = 90
                     else:
                         changey -= 1
-                        self.resetWeight()
                 # LEFT:
                 elif (left <= down and left <= up and left <= right):
                     if (GameLogic.GameLogic.node_array[self.currentx - 1][self.currenty].name == 0):
                         self.currentx -= 1
-                        self.direction = 1
+                        self.direction = 0
                     else:
                         changex -= 1
-                        self.resetWeight()
                 # UP:
                 elif (up <= down and up <= left and up <= right):
                     if (GameLogic.GameLogic.node_array[self.currentx][self.currenty - 1].name == 0):
                         self.currenty -= 1
-                        self.direction = 2
+                        self.direction = 270
                     else:
                         changey -= 1
-                        self.resetWeight()
                 # RIGHT:
                 elif (right <= down and right <= left and right <= up):
                     if (GameLogic.GameLogic.node_array[self.currentx + 1][self.currenty].name == 0):
                         self.currentx += 1
-                        self.direction = 3
+                        self.direction = 180
                     else:
                         changex += 1
-                        self.resetWeight()
                 
                 # Check if a tower is in the space
                 if (GameLogic.GameLogic.node_array[self.currentx + changex][self.currenty + changey].name != 0):
@@ -164,8 +170,10 @@ class UnitScript:
                     GameLogic.GameLogic.node_array[self.currentx + changex][self.currenty + changey].name.Destroy()
                     GameLogic.GameLogic.node_array[self.currentx + changex][self.currenty + changey].tower = False
                     GameLogic.GameLogic.node_array[self.currentx + changex][self.currenty + changey].name = 0
+                    self.resetWeight()
                 
-                self.Owner.Sprite.CurrentFrame = self.direction
+                self.Owner.Sprite.CurrentFrame = round(self.Frame)
+                self.Owner.Transform.Rotation = VectorMath.Quat(0,0,math.radians(self.direction))
                 self.move = Vec3(self.currentx, self.currenty, 0) - Vec3(round((self.Owner.Transform.Translation.x)),round(-1*(self.Owner.Transform.Translation.y)),0)
                 
             else:

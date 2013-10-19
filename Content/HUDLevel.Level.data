@@ -41,9 +41,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [1.195, 2.01, 50],
+			Vec3 Translation = [6.09501, 3.1075, 50],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, -2.14577e-008, -0, 1],
+			Quat Rotation = [0, -2.38419e-008, -0, 1],
 		},
 		Camera = 
 		{
@@ -53,7 +53,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 29,
+			float Size = 27,
 		},
 		EditorCameraController = 
 		{
@@ -61,7 +61,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [1.195, 2.01, 5.22351e-008],
+			Vec3 LookTarget = [6.09501, 3.1075, 2.66421e-007],
 		},
 		EditorRenderer = 
 		{
@@ -402,7 +402,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-17.5, 9.5, 0],
+			Vec3 Translation = [-16.5141, 9.23709, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -410,11 +410,11 @@ Level =
 		{
 			SpriteGeometryMode GeometryMode = ZPlane,
 			TextPositionMode Position = UpperLeft,
-			string FontName = "4e7bac697bec55c5:Verdana",
+			string FontName = "528b004da057178d:Blue",
 			uint FontSize = 100,
-			Vec4 Color = [1, 1, 1, 1],
+			Vec4 Color = [1, 0.7365, 0.15, 1],
 			bool Visible = false,
-			string Text = "Money",
+			string Text = "Money:",
 			bool OnTop = false,
 			BlendMode BlendMode = Alpha,
 			Vec2 Size = [0, 0],
@@ -434,7 +434,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-17.5, 7.5, 0],
+			Vec3 Translation = [-16.5962, 6.99061, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -442,9 +442,9 @@ Level =
 		{
 			SpriteGeometryMode GeometryMode = ZPlane,
 			TextPositionMode Position = UpperLeft,
-			string FontName = "4e7bac697bec55c5:Verdana",
+			string FontName = "528b004da057178d:Blue",
 			uint FontSize = 100,
-			Vec4 Color = [1, 1, 1, 1],
+			Vec4 Color = [1, 0.737255, 0.14902, 1],
 			bool Visible = false,
 			string Text = "Income:",
 			bool OnTop = false,
@@ -466,7 +466,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [5, 9.5, 0],
+			Vec3 Translation = [8.94366, 8.98121, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -474,9 +474,9 @@ Level =
 		{
 			SpriteGeometryMode GeometryMode = ZPlane,
 			TextPositionMode Position = UpperLeft,
-			string FontName = "4e7bac697bec55c5:Verdana",
+			string FontName = "528b004da057178d:Blue",
 			uint FontSize = 100,
-			Vec4 Color = [1, 1, 1, 1],
+			Vec4 Color = [0.72, 0, 0.0004319, 1],
 			bool Visible = false,
 			string Text = "Level",
 			bool OnTop = false,
@@ -498,17 +498,17 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-2.5, 8.5, 0],
+			Vec3 Translation = [-4.66902, 9.13615, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		SpriteText = 
 		{
 			SpriteGeometryMode GeometryMode = ZPlane,
-			TextPositionMode Position = Centered,
-			string FontName = "4e7bac697bec55c5:Verdana",
+			TextPositionMode Position = UpperLeft,
+			string FontName = "528b004da057178d:Blue",
 			uint FontSize = 100,
-			Vec4 Color = [1, 1, 1, 1],
+			Vec4 Color = [0, 0.470588, 0.0901961, 1],
 			bool Visible = false,
 			string Text = "Timer",
 			bool OnTop = false,
@@ -530,7 +530,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [5, 7.5, 0],
+			Vec3 Translation = [-4.61972, 6.91079, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -538,9 +538,9 @@ Level =
 		{
 			SpriteGeometryMode GeometryMode = ZPlane,
 			TextPositionMode Position = UpperLeft,
-			string FontName = "4e7bac697bec55c5:Verdana",
+			string FontName = "528b004da057178d:Blue",
 			uint FontSize = 100,
-			Vec4 Color = [1, 1, 1, 1],
+			Vec4 Color = [0, 0.47, 0.0893, 1],
 			bool Visible = false,
 			string Text = "Level",
 			bool OnTop = false,
@@ -562,7 +562,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [7.5, -7, 0],
+			Vec3 Translation = [9.02113, 6.94366, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -570,9 +570,9 @@ Level =
 		{
 			SpriteGeometryMode GeometryMode = ZPlane,
 			TextPositionMode Position = UpperLeft,
-			string FontName = "4e7bac697bec55c5:Verdana",
+			string FontName = "528b004da057178d:Blue",
 			uint FontSize = 100,
-			Vec4 Color = [1, 1, 1, 1],
+			Vec4 Color = [0.721569, 0, 0, 1],
 			bool Visible = false,
 			string Text = "Lives",
 			bool OnTop = false,
@@ -636,6 +636,37 @@ Level =
 			bool FlipY = false,
 			Vec4 Color = [1, 1, 1, 0.5],
 			bool Visible = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 21,
+		},
+		Named = 
+		{
+			string Name = "Sprite",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.00922561, 0.0381694, -5],
+			Vec3 Scale = [4.451, 4.451, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			string SpriteSource = "528b066c5086308f:UI",
+			bool FlipX = false,
+			bool FlipY = false,
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = true,
 			bool OnTop = false,
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,

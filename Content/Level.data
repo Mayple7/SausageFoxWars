@@ -117,6 +117,9 @@ Level =
 			float FarPlane = 200,
 			float Size = 20,
 		},
+		CameraLogic = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -130,7 +133,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [3.89271, -4.25194, 0.992188],
+			Vec3 Translation = [13.611, -4.25194, 0.992188],
 			Vec3 Scale = [1.85201, 1.85201, 1.85201],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -179,7 +182,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [3.89271, -8.63368, 0.992188],
+			Vec3 Translation = [23.3293, -4.23931, 0.992188],
 			Vec3 Scale = [1.85201, 1.85201, 1.85201],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -228,7 +231,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [3.89271, -0.0527735, 0.992188],
+			Vec3 Translation = [3.89271, -4.27812, 0.992188],
 			Vec3 Scale = [1.85201, 1.85201, 1.85201],
 			Quat Rotation = [0, 0, 0, 1],
 		},
