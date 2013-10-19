@@ -1,8 +1,0 @@
-TextContent = 
-{
-	PyScriptBuilder = 
-	{
-		string Name = "GreenTowerLogic",
-		uint64 ResourceId = 524576dd4a43ccde,
-	},
-},

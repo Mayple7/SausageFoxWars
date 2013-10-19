@@ -1,8 +1,0 @@
-TextContent = 
-{
-	PyScriptBuilder = 
-	{
-		string Name = "RedTowerBulletLogic",
-		uint64 ResourceId = 52babf20fbe990c3,
-	},
-},

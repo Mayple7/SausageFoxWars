@@ -1,8 +1,0 @@
-TextContent = 
-{
-	PyScriptBuilder = 
-	{
-		string Name = "BulletSplashLogic",
-		uint64 ResourceId = 52bd0ee2b2d5c7f6,
-	},
-},

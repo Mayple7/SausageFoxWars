@@ -1,8 +1,0 @@
-TextContent = 
-{
-	PyScriptBuilder = 
-	{
-		string Name = "MapCreate",
-		uint64 ResourceId = 527cfd58b98ca595,
-	},
-},

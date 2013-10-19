@@ -1,8 +1,0 @@
-TextContent = 
-{
-	PyScriptBuilder = 
-	{
-		string Name = "YellowTowerLogic",
-		uint64 ResourceId = 524576c74cfa7ac1,
-	},
-},

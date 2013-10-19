@@ -1,8 +1,0 @@
-TextContent = 
-{
-	PyScriptBuilder = 
-	{
-		string Name = "EnemySpawnerLogic",
-		uint64 ResourceId = 52b833b604a924a9,
-	},
-},

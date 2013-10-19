@@ -1,8 +1,0 @@
-TextContent = 
-{
-	PyScriptBuilder = 
-	{
-		string Name = "CreepLogic",
-		uint64 ResourceId = 52454f593e6244af,
-	},
-},
