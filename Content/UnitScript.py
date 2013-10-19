@@ -139,28 +139,28 @@ class UnitScript:
                 if (down <= left and (down < up or (self.randomPrevelent and down == up)) and down <= right):
                     if (GameLogic.GameLogic.node_array[self.currentx][self.currenty + 1].name == 0):
                         self.currenty += 1
-                        self.direction = 90
+                        self.direction = 180
                     else:
                         changey -= 1
                 # LEFT:
                 elif (left <= down and left <= up and left <= right):
                     if (GameLogic.GameLogic.node_array[self.currentx - 1][self.currenty].name == 0):
                         self.currentx -= 1
-                        self.direction = 0
+                        self.direction = 90
                     else:
                         changex -= 1
                 # UP:
                 elif (up <= down and up <= left and up <= right):
                     if (GameLogic.GameLogic.node_array[self.currentx][self.currenty - 1].name == 0):
                         self.currenty -= 1
-                        self.direction = 270
+                        self.direction = 0
                     else:
                         changey -= 1
                 # RIGHT:
                 elif (right <= down and right <= left and right <= up):
                     if (GameLogic.GameLogic.node_array[self.currentx + 1][self.currenty].name == 0):
                         self.currentx += 1
-                        self.direction = 180
+                        self.direction = 270
                     else:
                         changex += 1
                 

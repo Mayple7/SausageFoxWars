@@ -20,14 +20,14 @@ Cog =
 	},
 	Sprite = 
 	{
-		string SpriteSource = "528bca0bf2262533:unit",
+		string SpriteSource = "524d5791a46e37b9:Willy",
 		bool FlipX = false,
 		bool FlipY = false,
 		Vec4 Color = [1, 0, 0, 1],
 		bool Visible = true,
 		bool OnTop = true,
-		bool AnimationActive = false,
-		float AnimationSpeed = 1,
+		bool AnimationActive = true,
+		float AnimationSpeed = 1.5,
 		uint StartFrame = 0,
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
