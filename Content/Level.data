@@ -117,6 +117,9 @@ Level =
 			float FarPlane = 200,
 			float Size = 20,
 		},
+		CameraLogic = 
+		{
+		},
 	},
 	Cog = 
 	{
