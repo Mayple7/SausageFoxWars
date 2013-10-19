@@ -90,7 +90,6 @@ class UnitScript:
         if (self.FrameTimer <= 0):
             self.Frame += 1
             self.FrameTimer = self.speed*5
-        print(self.Frame)
         if (self.Frame >= self.numberOfFrames):
             self.Frame = 0
         # Tower effects (Stun or Slow)
