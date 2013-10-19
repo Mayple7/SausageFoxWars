@@ -142,7 +142,6 @@ class UnitScript:
                         self.direction = 90
                     else:
                         changey -= 1
-                        self.resetWeight()
                 # LEFT:
                 elif (left <= down and left <= up and left <= right):
                     if (GameLogic.GameLogic.node_array[self.currentx - 1][self.currenty].name == 0):
@@ -150,7 +149,6 @@ class UnitScript:
                         self.direction = 0
                     else:
                         changex -= 1
-                        self.resetWeight()
                 # UP:
                 elif (up <= down and up <= left and up <= right):
                     if (GameLogic.GameLogic.node_array[self.currentx][self.currenty - 1].name == 0):
@@ -158,7 +156,6 @@ class UnitScript:
                         self.direction = 270
                     else:
                         changey -= 1
-                        self.resetWeight()
                 # RIGHT:
                 elif (right <= down and right <= left and right <= up):
                     if (GameLogic.GameLogic.node_array[self.currentx + 1][self.currenty].name == 0):
@@ -166,7 +163,6 @@ class UnitScript:
                         self.direction = 180
                     else:
                         changex += 1
-                        self.resetWeight()
                 
                 # Check if a tower is in the space
                 if (GameLogic.GameLogic.node_array[self.currentx + changex][self.currenty + changey].name != 0):
@@ -174,6 +170,7 @@ class UnitScript:
                     GameLogic.GameLogic.node_array[self.currentx + changex][self.currenty + changey].name.Destroy()
                     GameLogic.GameLogic.node_array[self.currentx + changex][self.currenty + changey].tower = False
                     GameLogic.GameLogic.node_array[self.currentx + changex][self.currenty + changey].name = 0
+                    self.resetWeight()
                 
                 self.Owner.Sprite.CurrentFrame = round(self.Frame)
                 self.Owner.Transform.Rotation = VectorMath.Quat(0,0,math.radians(self.direction))

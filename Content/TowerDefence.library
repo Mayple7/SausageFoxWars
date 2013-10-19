@@ -3,6 +3,7 @@ ContentLibrary =
 	string Name = "TowerDefence",
 	Array Files = 
 	[
+		"Blue.ttf",
 		"BlueTower.Archetype.data",
 		"BlueTowerBullet.Archetype.data",
 		"BlueTowerLogic.py",
@@ -43,6 +44,7 @@ ContentLibrary =
 		"TowerStats.py",
 		"Tower_Icon.SpriteSource.png",
 		"Tower_Icon.png",
+		"UI.SpriteSource.png",
 		"Unit.Archetype.data",
 		"Unit1.Archetype.data",
 		"Unit2.Archetype.data",
