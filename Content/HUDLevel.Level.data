@@ -41,9 +41,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [6.09501, 3.1075, 50],
+			Vec3 Translation = [-0.372503, -4.8175, 50],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, -2.38419e-008, -0, 1],
+			Quat Rotation = [0, -2.17557e-008, -0, 1],
 		},
 		Camera = 
 		{
@@ -53,7 +53,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 27,
+			float Size = 32,
 		},
 		EditorCameraController = 
 		{
@@ -61,7 +61,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [6.09501, 3.1075, 2.66421e-007],
+			Vec3 LookTarget = [-0.372501, -4.8175, -1.62819e-008],
 		},
 		EditorRenderer = 
 		{
@@ -402,7 +402,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-16.5141, 9.23709, 0],
+			Vec3 Translation = [-15.4924, 9.05133, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -434,7 +434,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-16.5962, 6.99061, 0],
+			Vec3 Translation = [-15.5436, 7.08349, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -466,7 +466,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [8.94366, 8.98121, 0],
+			Vec3 Translation = [8.2935, 8.88833, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -562,7 +562,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [9.02113, 6.94366, 0],
+			Vec3 Translation = [8.37097, 7.2223, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -656,13 +656,13 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.00922561, 0.0381694, -5],
-			Vec3 Scale = [4.451, 4.451, 1],
+			Vec3 Translation = [-0.01, 0.03, -5],
+			Vec3 Scale = [4.455, 4.455, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
 		{
-			string SpriteSource = "528b066c5086308f:UI",
+			string SpriteSource = "528b30890a685bfc:UI",
 			bool FlipX = false,
 			bool FlipY = false,
 			Vec4 Color = [1, 1, 1, 1],

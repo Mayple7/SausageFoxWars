@@ -10,7 +10,7 @@ class CameraLogic:
         Zero.Connect(cameraCog, Events.MouseUpdate, self.OnMouseUpdate)
         Zero.Connect(cameraCog, Events.MouseMove, self.OnMouseMove)
         self.mousePos = VectorMath.Vec3(0,0,0)
-        
+        self.map = 0
         self.zoomMin = 7
         self.zoomMax = 20
         
