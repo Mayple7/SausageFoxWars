@@ -371,7 +371,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-6, -8.5, 3],
+			Vec3 Translation = [-6, -8.5, 1],
 			Vec3 Scale = [3, 3, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -380,7 +380,7 @@ Level =
 			string SpriteSource = "5275aa4d802dd6dc:Square",
 			bool FlipX = false,
 			bool FlipY = false,
-			Vec4 Color = [1, 0, 0, 0.5],
+			Vec4 Color = [0.3146, 0.715, 0, 0.5],
 			bool Visible = false,
 			bool OnTop = false,
 			bool AnimationActive = true,
@@ -600,10 +600,41 @@ Level =
 		},
 		Sprite = 
 		{
-			string SpriteSource = "524e6746effb85ba:Tower_Icon",
+			string SpriteSource = "524e5079388bfe0f:Tower_Icon",
 			bool FlipX = false,
 			bool FlipY = false,
 			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 20,
+		},
+		Named = 
+		{
+			string Name = "SelectorBkgrnd",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, -8.5, 0],
+			Vec3 Scale = [15, 3, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool FlipX = false,
+			bool FlipY = false,
+			Vec4 Color = [1, 1, 1, 0.5],
 			bool Visible = false,
 			bool OnTop = false,
 			bool AnimationActive = true,

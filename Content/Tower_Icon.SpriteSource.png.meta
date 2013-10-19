@@ -3,7 +3,7 @@ ImageContent =
 	SpriteSourceBuilder = 
 	{
 		string Name = "Tower_Icon",
-		uint64 ResourceId = 524e6746effb85ba,
+		uint64 ResourceId = 524e5079388bfe0f,
 		uint64 AtlasId = 5274cf95e4a661fd,
 		uint FrameSizeX = 500,
 		uint FrameSizeY = 100,
