@@ -57,6 +57,7 @@ ContentLibrary =
 		"Upgrade4Script.py",
 		"UpgradeBasic.py",
 		"Wall.Archetype.data",
+		"Willy4Directions.SpriteSource.png",
 		"YellowTower.Archetype.data",
 		"YellowTowerLogic.py",
 		"race_button.SpriteSource.png",

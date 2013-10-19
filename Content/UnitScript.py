@@ -12,6 +12,7 @@ class UnitScript:
         # Initializes the unit movement and timers
         self.currentx = 0
         self.currenty = 0
+        self.direction = 0
         self.MovementActive = 1
         self.MovementTimer = 0.1
         self.MovingActive = 0
@@ -126,29 +127,33 @@ class UnitScript:
             if (not(GameLogic.GameLogic.node_array[self.currentx][self.currenty].weight == 0)):
                 # DOWN:
                 if (down <= left and (down < up or (self.randomPrevelent and down == up)) and down <= right):
-                    if (GameLogic.GameLogic.node_array[self.currentx][self.currenty+1].name == 0):
+                    if (GameLogic.GameLogic.node_array[self.currentx][self.currenty + 1].name == 0):
                         self.currenty += 1
+                        self.direction = 0
                     else:
                         changey -= 1
                         self.resetWeight()
                 # LEFT:
                 elif (left <= down and left <= up and left <= right):
-                    if (GameLogic.GameLogic.node_array[self.currentx-1][self.currenty].name == 0):
+                    if (GameLogic.GameLogic.node_array[self.currentx - 1][self.currenty].name == 0):
                         self.currentx -= 1
+                        self.direction = 1
                     else:
                         changex -= 1
                         self.resetWeight()
                 # UP:
                 elif (up <= down and up <= left and up <= right):
-                    if (GameLogic.GameLogic.node_array[self.currentx][self.currenty-1].name == 0):
+                    if (GameLogic.GameLogic.node_array[self.currentx][self.currenty - 1].name == 0):
                         self.currenty -= 1
+                        self.direction = 2
                     else:
                         changey -= 1
                         self.resetWeight()
                 # RIGHT:
                 elif (right <= down and right <= left and right <= up):
-                    if (GameLogic.GameLogic.node_array[self.currentx+1][self.currenty].name == 0):
+                    if (GameLogic.GameLogic.node_array[self.currentx + 1][self.currenty].name == 0):
                         self.currentx += 1
+                        self.direction = 3
                     else:
                         changex += 1
                         self.resetWeight()
@@ -160,7 +165,8 @@ class UnitScript:
                     GameLogic.GameLogic.node_array[self.currentx + changex][self.currenty + changey].tower = False
                     GameLogic.GameLogic.node_array[self.currentx + changex][self.currenty + changey].name = 0
                 
-                self.move = Vec3(self.currentx,self.currenty, 0) - Vec3(round((self.Owner.Transform.Translation.x)),round(-1*(self.Owner.Transform.Translation.y)),0)
+                self.Owner.Sprite.CurrentFrame = self.direction
+                self.move = Vec3(self.currentx, self.currenty, 0) - Vec3(round((self.Owner.Transform.Translation.x)),round(-1*(self.Owner.Transform.Translation.y)),0)
                 
             else:
                 # Reached the end
