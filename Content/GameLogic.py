@@ -107,6 +107,14 @@ class GameLogic:
                 self.CellSelectedy = round(self.CellSelectedyStick)
                 if (self.node_array[self.CellSelectedx][self.CellSelectedy].cellName):
                     self.node_array[self.CellSelectedx][self.CellSelectedy].cellName.CellLogic.HoverState()
+                    
+        # Key presses for testing
+        if(Zero.Keyboard.KeyIsPressed(Zero.Keys.Space)):
+            self.printField()
+        if(Zero.Keyboard.KeyIsPressed(Zero.Keys.R)):
+            self.refreshWeight()
+        if(Zero.Keyboard.KeyIsPressed(Zero.Keys.T)):
+            self.Space.FindObjectByName("Player").PlayerLogic.level = 59
             
     def refreshWeight(self):
         #Resets the end point to 0 and starting loop variables

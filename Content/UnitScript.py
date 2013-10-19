@@ -9,26 +9,27 @@ Vec3 = VectorMath.Vec3
 
 class UnitScript:
     def Initialize(self, initializer):
-        #Initializes the unit movement and timers
+        # Initializes the unit movement and timers
         self.currentx = 0
         self.currenty = 0
         self.MovementActive = 1
         self.MovementTimer = 0.1
         self.MovingActive = 0
-        self.MovingTimer = self.MovementTimer/16
+        self.MovingTimer = self.MovementTimer / 16
         self.move = Vec3(0,0,0)
         
-        
-        #Test stuff
+        # Test stuff
         self.testx = 0
         self.testy = 0
         
-        #Gets the HUD to reduce lives
+        # Gets the HUD to reduce lives
         self.player = self.Space.FindObjectByName("Player")
         self.levelsettings = self.Space.FindObjectByName("LevelSettings")
         self.health = self.levelsettings.CreepLogic.hparray[self.player.PlayerLogic.level-1]
         self.speed = self.levelsettings.CreepLogic.speedarray[self.player.PlayerLogic.level-1]
         self.bounty = self.levelsettings.CreepLogic.bountyarray[self.player.PlayerLogic.level-1]
+        
+        # Tower effects
         self.slow = False
         self.stun = False
         self.stuntimer = 0
@@ -39,19 +40,20 @@ class UnitScript:
         if (random.randint(0,1)):
             self.randomPrevelent = 1
         
+        # On update
         Zero.Connect(self.Space, Events.LogicUpdate, self.OnLogicUpdate)
-        
+
     def resetWeight(self):
         #Resets all the weights and refreshes the grid
         GameLogic = self.Space.FindObjectByName("GameLogic")
         for i in range(1, GameLogic.GameLogic.xsize - 1):
             for j in range(1, GameLogic.GameLogic.ysize - 1):
                     GameLogic.GameLogic.node_array[i][j].weight = -2
-                    
+        
         GameLogic.GameLogic.node_array[GameLogic.GameLogic.endx][GameLogic.GameLogic.endy].weight = 0
         GameLogic.GameLogic.refreshWeight()
-        
-    def OnLogicUpdate(self, UpdateEvent):
+
+    def TowerEffect(self, UpdateEvent):
         #Updates the creep if he is slowed or stunned
         if(self.stun):
             self.stuntimer += UpdateEvent.Dt
@@ -74,6 +76,13 @@ class UnitScript:
                 self.slowtimer = 0
                 self.Owner.Sprite.Color = Color.Red
                 self.speed = self.levelsettings.CreepLogic.speedarray[self.player.PlayerLogic.level-1]
+
+    def OnLogicUpdate(self, UpdateEvent):
+        # Game logic location
+        GameLogic = self.Space.FindObjectByName("GameLogic")
+        
+        # Tower effects (Stun or Slow)
+        self.TowerEffect(UpdateEvent)
         
         #Checks if the creep is dead
         if(self.health <= 0):
@@ -89,23 +98,15 @@ class UnitScript:
             self.MovingTimer = 0
         if(Vec3(round(self.Owner.Transform.Translation.x,1), round(self.Owner.Transform.Translation.y*-1,1), 0) == Vec3(self.currentx, self.currenty, 0)):
             self.MovementActive = 1
-            
-        GameLogic = self.Space.FindObjectByName("GameLogic")
-        if(Zero.Keyboard.KeyIsPressed(Zero.Keys.Space)):
-            GameLogic.GameLogic.printField()
-        if(Zero.Keyboard.KeyIsPressed(Zero.Keys.R)):
-            GameLogic.GameLogic.refreshWeight()
-        if(Zero.Keyboard.KeyIsPressed(Zero.Keys.T)):
-            self.player.PlayerLogic.level = 59
         
         if(self.MovementActive == 1):
             
             self.currentx = round(self.Owner.Transform.Translation.x)
-            self.currenty = round(-1*(self.Owner.Transform.Translation.y))
+            self.currenty = round(-1 * (self.Owner.Transform.Translation.y))
             #print(Vec3(self.Owner.Transform.Translation.x, self.Owner.Transform.Translation.y*-1, 0))
-            down = GameLogic.GameLogic.node_array[self.currentx][self.currenty+1].weight
-            left = GameLogic.GameLogic.node_array[self.currentx-1][self.currenty].weight
-            up = GameLogic.GameLogic.node_array[self.currentx][self.currenty-1].weight
+            down  = GameLogic.GameLogic.node_array[self.currentx][self.currenty+1].weight
+            left  = GameLogic.GameLogic.node_array[self.currentx-1][self.currenty].weight
+            up    = GameLogic.GameLogic.node_array[self.currentx][self.currenty-1].weight
             right = GameLogic.GameLogic.node_array[self.currentx+1][self.currenty].weight
             
             #print(str(self.currenty) + " : " + str(self.currentx))
@@ -118,53 +119,54 @@ class UnitScript:
                 up = 1000000
             if (right == -1):
                 right = 1000000
-                
-            if(not(GameLogic.GameLogic.node_array[self.currentx][self.currenty].weight == 0)):
-                if(down <= left and (down < up or (self.randomPrevelent and down == up)) and down <= right):
+            
+            changex = 0
+            changey = 0
+            
+            if (not(GameLogic.GameLogic.node_array[self.currentx][self.currenty].weight == 0)):
+                # DOWN:
+                if (down <= left and (down < up or (self.randomPrevelent and down == up)) and down <= right):
                     if (GameLogic.GameLogic.node_array[self.currentx][self.currenty+1].name == 0):
                         self.currenty += 1
                     else:
-                        #print(GameLogic.GameLogic.node_array[self.currenty+1][self.currentx].name)
-                        GameLogic.GameLogic.node_array[self.currentx][self.currenty+1].name.Destroy()
-                        GameLogic.GameLogic.node_array[self.currentx][self.currenty+1].tower = False
-                        GameLogic.GameLogic.node_array[self.currentx][self.currenty+1].name = 0
+                        changey -= 1
                         self.resetWeight()
-                    #print("down")
-                elif(left <= down and left <= up and left <= right):
+                # LEFT:
+                elif (left <= down and left <= up and left <= right):
                     if (GameLogic.GameLogic.node_array[self.currentx-1][self.currenty].name == 0):
                         self.currentx -= 1
                     else:
-                        #print(GameLogic.GameLogic.node_array[self.currenty][self.currentx-1].name)
-                        GameLogic.GameLogic.node_array[self.currentx-1][self.currenty].name.Destroy()
-                        GameLogic.GameLogic.node_array[self.currentx-1][self.currenty].tower = False
-                        GameLogic.GameLogic.node_array[self.currentx-1][self.currenty].name = 0
+                        changex -= 1
                         self.resetWeight()
-                    #print("left")
-                elif(up <= down and up <= left and up <= right):
+                # UP:
+                elif (up <= down and up <= left and up <= right):
                     if (GameLogic.GameLogic.node_array[self.currentx][self.currenty-1].name == 0):
                         self.currenty -= 1
                     else:
-                        #print(GameLogic.GameLogic.node_array[self.currenty-1][self.currentx].name)
-                        GameLogic.GameLogic.node_array[self.currentx][self.currenty-1].name.Destroy()
-                        GameLogic.GameLogic.node_array[self.currentx][self.currenty-1].tower = False
-                        GameLogic.GameLogic.node_array[self.currentx][self.currenty-1].name = 0
+                        changey -= 1
                         self.resetWeight()
-                    #print("up")
-                elif(right <= down and right <= left and right <= up):
+                # RIGHT:
+                elif (right <= down and right <= left and right <= up):
                     if (GameLogic.GameLogic.node_array[self.currentx+1][self.currenty].name == 0):
                         self.currentx += 1
                     else:
-                        #print(GameLogic.GameLogic.node_array[self.currenty][self.currentx+1].name)
-                        GameLogic.GameLogic.node_array[self.currentx+1][self.currenty].name.Destroy()
-                        GameLogic.GameLogic.node_array[self.currentx+1][self.currenty].tower = False
-                        GameLogic.GameLogic.node_array[self.currentx+1][self.currenty].name = 0
+                        changex += 1
                         self.resetWeight()
-                    #print("right")
-                #print(self.Owner.Transform.Translation)
+                
+                # Check if a tower is in the space
+                if (GameLogic.GameLogic.node_array[self.currentx + changex][self.currenty + changey].name != 0):
+                    # Destroy the tower
+                    GameLogic.GameLogic.node_array[self.currentx + changex][self.currenty + changey].name.Destroy()
+                    GameLogic.GameLogic.node_array[self.currentx + changex][self.currenty + changey].tower = False
+                    GameLogic.GameLogic.node_array[self.currentx + changex][self.currenty + changey].name = 0
+                
                 self.move = Vec3(self.currentx,self.currenty, 0) - Vec3(round((self.Owner.Transform.Translation.x)),round(-1*(self.Owner.Transform.Translation.y)),0)
+                
             else:
+                # Reached the end
                 self.player.PlayerLogic.lives -= 1
                 self.Owner.Destroy()
+            
             self.MovementActive = 0
             self.MovingActive = 1
             self.MovingTimer = (self.speed) / 16
@@ -172,7 +174,7 @@ class UnitScript:
             
         if (self.MovingActive == 1):
             self.Owner.Transform.Translation += VectorMath.Vec3((self.move.x * self.speed), -(self.move.y * self.speed), 0)
-            self.MovingTimer = (self.speed)/16
+            self.MovingTimer = (self.speed) / 16
             self.MovingActive = 0
             
 Zero.RegisterComponent("UnitScript", UnitScript)

@@ -41,6 +41,7 @@ ContentLibrary =
 		"TowerStats.Cog.data",
 		"TowerStats.py",
 		"Tower_Icon.SpriteSource.png",
+		"Tower_Icon.png",
 		"Unit.Archetype.data",
 		"Unit1.Archetype.data",
 		"Unit2.Archetype.data",
