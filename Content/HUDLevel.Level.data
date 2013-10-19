@@ -371,8 +371,8 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-3.75, -6, 0],
-			Vec3 Scale = [2.05442, 0.526329, 1],
+			Vec3 Translation = [-6, -8.5, 3],
+			Vec3 Scale = [3, 3, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -380,7 +380,7 @@ Level =
 			string SpriteSource = "5275aa4d802dd6dc:Square",
 			bool FlipX = false,
 			bool FlipY = false,
-			Vec4 Color = [0, 0, 0, 1],
+			Vec4 Color = [1, 0, 0, 0.5],
 			bool Visible = false,
 			bool OnTop = false,
 			bool AnimationActive = true,
@@ -594,13 +594,13 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, -8.73513, 2],
-			Vec3 Scale = [1.63485, 1.63485, 1.63485],
+			Vec3 Translation = [0, -8.5, 2],
+			Vec3 Scale = [1.5, 1.5, 1.5],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
 		{
-			string SpriteSource = "524eb5df29800d0d:Tower_Icon",
+			string SpriteSource = "524e6746effb85ba:Tower_Icon",
 			bool FlipX = false,
 			bool FlipY = false,
 			Vec4 Color = [1, 1, 1, 1],

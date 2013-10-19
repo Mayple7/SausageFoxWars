@@ -64,20 +64,20 @@ class CellLogic:
         if (self.InputType):
             if(Zero.Keyboard.KeyIsPressed(Zero.Keys.One)):
                 self.towerChoice = 1
-                self.select.Transform.Translation = Vec3(self.red.Transform.Translation.x, -6, 0)
+                self.select.Transform.Translation = Vec3(-6, -8.5, 3)
             elif(Zero.Keyboard.KeyIsPressed(Zero.Keys.Three)):
                 self.towerChoice = 2
-                self.select.Transform.Translation = Vec3(self.blue.Transform.Translation.x, -6, 0)
+                self.select.Transform.Translation = Vec3(0, -8.5, 3)
             elif(Zero.Keyboard.KeyIsPressed(Zero.Keys.Two)):
                 self.towerChoice = 3
-                self.select.Transform.Translation = Vec3(self.green.Transform.Translation.x, -6, 0)
+                self.select.Transform.Translation = Vec3(-3, -8.5, 3)
             elif(Zero.Keyboard.KeyIsPressed(Zero.Keys.Four)):
                 self.towerChoice = 4
-                self.select.Transform.Translation = Vec3(self.yellow.Transform.Translation.x, -6, 0)
+                self.select.Transform.Translation = Vec3(3, -8.5, 3)
                 
             elif(Zero.Keyboard.KeyIsPressed(Zero.Keys.Five)):
                 self.towerChoice = 5
-                self.select.Transform.Translation = Vec3(self.yellow.Transform.Translation.x + 4, -6, 0)
+                self.select.Transform.Translation = Vec3(6, -8.5, 3)
                     
     def OnButtonDown(self, gamepadEvent):
         pass
