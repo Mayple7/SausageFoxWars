@@ -64,15 +64,15 @@ class TowerStats:
         self.cost1[2] = 300
         self.cost1[3] = 800
         
-        self.damage1[0] = 10
+        self.damage1[0] = 32
         self.damage1[1] = 40
         self.damage1[2] = 80
         self.damage1[3] = 160
         
-        self.cooldown1[0] = 1.5
-        self.cooldown1[1] = 1.25
-        self.cooldown1[2] = 1
-        self.cooldown1[3] = 0.75
+        self.cooldown1[0] = 1.25
+        self.cooldown1[1] = 1.15
+        self.cooldown1[2] = 1.05
+        self.cooldown1[3] = 0.90
         
         self.color1[0] = Color.Red
         self.color1[1] = Color.Firebrick

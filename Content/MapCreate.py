@@ -10,17 +10,17 @@ class MapCreate:
         # SIZE:
         # 42 x 42 is the biggest square plausable for Zero
         self.xsize = 30
-        self.ysize = 10
+        self.ysize = 11
         
         # END:
         # (Make sure it is within the size bounds)
-        self.endx = 2
-        self.endy = 3
+        self.endx = 1
+        self.endy = 5
         
         # SPWN:
         # (Make sure it is within the size bounds)
-        self.spwnx = 20
-        self.spwny = 6
+        self.spwnx = 28
+        self.spwny = 5
         
         # Place those magnificent sprites
         self.node_array = [[[0] * self.ysize for i in range(self.ysize)][0] * self.xsize for i in range(self.xsize)]
