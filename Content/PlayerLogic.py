@@ -12,7 +12,7 @@ class PlayerLogic:
         #Sets the player's starting stats
         self.lives = 30
         self.income = 30
-        self.money = 60
+        self.money = 90
         self.level = 1
         self.levelCount = 0
         self.time = 10
@@ -44,7 +44,7 @@ class PlayerLogic:
         #Timer to give the player income and increase the level
         if(self.time <= 0):
             self.money += self.income
-            self.time = 10
+            self.time = 30
             self.levelCount += 1
             
         self.updateText()
