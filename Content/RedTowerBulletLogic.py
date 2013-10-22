@@ -2,6 +2,7 @@ import Zero
 import Events
 import Property
 import VectorMath
+import math
 
 class RedTowerBulletLogic:
     def Initialize(self, initializer):
@@ -22,6 +23,8 @@ class RedTowerBulletLogic:
             direction = self.targetedUnit.Transform.Translation - self.Owner.Transform.Translation
             direction.normalize()
             self.Owner.Transform.Translation += VectorMath.Vec3(direction.x * (UpdateEvent.Dt * self.Speed), direction.y * (UpdateEvent.Dt * self.Speed), 0)
+            directionAngle = math.atan2(direction.y,direction.x)
+            self.Owner.Transform.Rotation = VectorMath.Quat(0,0,directionAngle)
         #Destroys if no target
         else:
             self.Owner.Destroy()

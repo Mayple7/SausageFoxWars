@@ -14,16 +14,16 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [3.43201, 2.75124, 0.992188],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [0.5, 0.5, 0.5],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
 	{
-		string SpriteSource = "5275aa4d802dd6dc:Square",
+		string SpriteSource = "528c1340afa55205:bullet",
 		bool FlipX = false,
 		bool FlipY = false,
-		Vec4 Color = [0, 1, 0.76, 1],
+		Vec4 Color = [1, 1, 1, 1],
 		bool Visible = true,
 		bool OnTop = false,
 		bool AnimationActive = true,
@@ -51,7 +51,7 @@ Cog =
 		bool Asleep = false,
 		bool Kinematic = true,
 		bool RotationLocked = false,
-		bool Mode2D = true,
+		bool Mode2D = false,
 		bool AllowSleep = false,
 		bool Inherit2DMode = true,
 		Vec3 Velocity = [0, 0, 0],

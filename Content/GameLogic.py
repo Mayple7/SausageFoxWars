@@ -21,6 +21,8 @@ class GameLogic:
     def Initialize(self, initializer):
         Zero.Connect(self.Space, Events.LogicUpdate, self.OnLogicUpdate)
         
+        self.debugMode = False
+        
         self.SelectingCell = 0
         self.CellSelected = 0
         self.CellSelectedx = 5
@@ -115,6 +117,8 @@ class GameLogic:
             self.refreshWeight()
         if(Zero.Keyboard.KeyIsPressed(Zero.Keys.T)):
             self.Space.FindObjectByName("Player").PlayerLogic.level = 59
+        if(Zero.Keyboard.KeyIsPressed(Zero.Keys.Home)):
+            self.debugMode = not self.debugMode
             
     def refreshWeight(self):
         #Resets the end point to 0 and starting loop variables

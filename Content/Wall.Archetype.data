@@ -20,10 +20,10 @@ Cog =
 	},
 	Sprite = 
 	{
-		string SpriteSource = "5275aa4d802dd6dc:Square",
+		string SpriteSource = "528c7776c3864f93:Wall",
 		bool FlipX = false,
 		bool FlipY = false,
-		Vec4 Color = [0.32, 0.2016, 0, 1],
+		Vec4 Color = [1, 1, 1, 1],
 		bool Visible = true,
 		bool OnTop = false,
 		bool AnimationActive = true,
@@ -31,5 +31,8 @@ Cog =
 		uint StartFrame = 0,
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
+	},
+	WallLogic = 
+	{
 	},
 },

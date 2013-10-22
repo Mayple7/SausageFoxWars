@@ -51,11 +51,20 @@ class CellLogic:
         
         self.hoverZ = self.Owner.Transform.Translation.z
         
+        self.sprite = self.Owner.Sprite.SpriteSource
+        self.debugMode = self.GameLogic.GameLogic.debugMode
         self.DefaultState()
         
     
     def OnLogicUpdate(self, UpdateEvent):
-        
+        if(Zero.Keyboard.KeyIsPressed(Zero.Keys.Home)):
+            self.debugMode = self.GameLogic.GameLogic.debugMode
+        if(self.debugMode and self.Owner.Sprite.SpriteSource == self.sprite):
+            self.Owner.Sprite.SpriteSource = "Square"
+            self.Owner.SpriteText.Visible = True
+        elif(not(self.debugMode) and not(self.Owner.Sprite.SpriteSource == self.sprite)):
+            self.Owner.Sprite.SpriteSource = self.sprite
+            self.Owner.SpriteText.Visible = False
         if (self.nameSet == 0):
             self.nameSet = 1
             self.GameLogic.GameLogic.node_array[self.currentx][self.currenty].cellName = self.Owner
@@ -117,7 +126,8 @@ class CellLogic:
             tower = self.Space.CreateAtPosition("RedTower",self.Owner.Transform.Translation)
             tower.Transform.Translation += Vec3(0,0,1)
             tower.TowerLogic.cost = self.towerstats.cost1[self.towerstats.towerlevel[0]]
-            tower.Sprite.Color = self.towerstats.color1[self.towerstats.towerlevel[0]]
+            #tower.Sprite.Color = self.towerstats.color1[self.towerstats.towerlevel[0]]
+            tower.Sprite.SpriteSource = self.towerstats.sprite1[self.towerstats.towerlevel[0]]
             tower.RedTowerLogic.cost = self.towerstats.cost1[self.towerstats.towerlevel[0]]
             tower.RedTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.RedTowerLogic.ypos = -round(tower.Transform.Translation.y)

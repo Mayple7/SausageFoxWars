@@ -14,13 +14,13 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [2, -2, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
 	{
-		string SpriteSource = "5275aa4d802dd6dc:Square",
+		string SpriteSource = "528c7b0490e64e65:Grass",
 		bool FlipX = false,
 		bool FlipY = false,
 		Vec4 Color = [1, 1, 1, 1],
@@ -49,6 +49,8 @@ Cog =
 	},
 	CellLogic = 
 	{
+		bool InputType = true,
+		int GamepadIndex = 0,
 	},
 	SpriteText = 
 	{
@@ -57,7 +59,7 @@ Cog =
 		string FontName = "4e7bac697bec55c5:Verdana",
 		uint FontSize = 20,
 		Vec4 Color = [0, 0, 0, 1],
-		bool Visible = true,
+		bool Visible = false,
 		string Text = "0",
 		bool OnTop = false,
 		BlendMode BlendMode = Alpha,

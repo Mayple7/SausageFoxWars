@@ -29,10 +29,10 @@ class TowerStats:
         self.color3 = [[1] * 4 for i in range(4)]
         self.color4 = [[1] * 4 for i in range(4)]
         
-        #self.sprite1 = [[1] * 4 for i in range(4)]
-        #self.sprite2 = [[1] * 4 for i in range(4)]
-        #self.sprite3 = [[1] * 4 for i in range(4)]
-        #self.sprite4 = [[1] * 4 for i in range(4)]
+        self.sprite1 = [[1] * 4 for i in range(4)]
+        self.sprite2 = [[1] * 4 for i in range(4)]
+        self.sprite3 = [[1] * 4 for i in range(4)]
+        self.sprite4 = [[1] * 4 for i in range(4)]
         
         self.range1 = 3
         self.range2 = 3
@@ -83,10 +83,10 @@ class TowerStats:
         self.upgradecost1[1] = 600
         self.upgradecost1[2] = 1200
         
-        #self.sprite1[0] = "tower1"
-        #self.sprite1[1] = "tower2"
-        #self.sprite1[2] = "tower3"
-        #self.sprite1[3] = "tower4"
+        self.sprite1[0] = "RedTower1"
+        self.sprite1[1] = "RedTower2"
+        self.sprite1[2] = "RedTower1"
+        self.sprite1[3] = "RedTower1"
         
         #Race 1 Tower 2 Scaling
         self.cost2[0] = 15
