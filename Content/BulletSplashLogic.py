@@ -21,6 +21,7 @@ class BulletSplashLogic:
                 if (distance < self.range):
                     effect = (self.range - distance) / self.range
                     obj.UnitScript.health -= self.damage * effect
+                    #juli comment :O
                     
         self.Owner.Destroy();
 
