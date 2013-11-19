@@ -29,8 +29,8 @@ class MapCreate:
         self.Space.CreateAtPosition("GameLogic", VectorMath.Vec3(-10, -2, -30))
         
         self.Space.FindObjectByName("Race1Button").Destroy()
-        self.Space.FindObjectByName("Race2Button").Destroy()
-        self.Space.FindObjectByName("Race3Button").Destroy()
+        #self.Space.FindObjectByName("Race2Button").Destroy()
+        #self.Space.FindObjectByName("Race3Button").Destroy()
         
         for i in range(self.xsize):
             for j in range(self.ysize):

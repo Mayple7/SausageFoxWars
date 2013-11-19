@@ -64,7 +64,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [20.3548, -3.58251, 50.9922],
+			Vec3 Translation = [8.24729, -3.07501, 50.9922],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, -1.90735e-008, -0, 1],
 		},
@@ -76,7 +76,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 40,
+			float Size = 29,
 		},
 		EditorCameraController = 
 		{
@@ -84,7 +84,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [20.3548, -3.58251, 0.992188],
+			Vec3 LookTarget = [8.2473, -3.07501, 0.992187],
 		},
 		EditorRenderer = 
 		{
@@ -129,109 +129,11 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "Race2Button",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [14.4561, -4.50546, 0.992188],
-			Vec3 Scale = [1.85201, 1.85201, 1.85201],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			string SpriteSource = "524f75625d776117:race_button2",
-			bool FlipX = false,
-			bool FlipY = false,
-			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
-			bool OnTop = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = false,
-			string MaterialName = "4faa6050b8692851:HardMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [2.375, 0.8, 0.5],
-		},
-		Reactive = 
-		{
-			bool Active = true,
-			bool CaptureMouse = true,
-		},
-		Race2Button = 
-		{
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 5,
-		},
-		Named = 
-		{
-			string Name = "Race3Button",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [24.1744, -4.49283, 0.992188],
-			Vec3 Scale = [1.85201, 1.85201, 1.85201],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			string SpriteSource = "524ebfb1706f047d:race_button3",
-			bool FlipX = false,
-			bool FlipY = false,
-			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
-			bool OnTop = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = false,
-			string MaterialName = "4faa6050b8692851:HardMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [2.375, 0.8, 0.5],
-		},
-		Reactive = 
-		{
-			bool Active = true,
-			bool CaptureMouse = true,
-		},
-		Race3Button = 
-		{
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 6,
-		},
-		Named = 
-		{
 			string Name = "Race1Button",
 		},
 		Transform = 
 		{
-			Vec3 Translation = [4.73778, -4.53164, 0.992188],
+			Vec3 Translation = [14.5, -4.5, 0.992188],
 			Vec3 Scale = [1.85201, 1.85201, 1.85201],
 			Quat Rotation = [0, 0, 0, 1],
 		},

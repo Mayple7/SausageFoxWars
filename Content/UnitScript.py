@@ -41,9 +41,7 @@ class UnitScript:
         self.numberOfFrames = 4
         
         # Random
-        self.randomPrevelent = 0
-        if (random.randint(0,1)):
-            self.randomPrevelent = 1
+        self.randomPrevelent = random.randint(0,1)
         
         # On update
         Zero.Connect(self.Space, Events.LogicUpdate, self.OnLogicUpdate)
@@ -121,7 +119,8 @@ class UnitScript:
             right = GameLogic.GameLogic.node_array[self.currentx+1][self.currenty].weight
             
             #print(str(self.currenty) + " : " + str(self.currentx))
-            #print("D: " + str(down) + "L: " + str(left) + "U: " + str(up) + "R: " + str(right))
+            #print("D: " + str(down) + " L: " + str(left) + " U: " + str(up) + " R: " + str(right))
+            
             if (down == -1):
                 down = 1000000
             if (left == -1):
@@ -141,7 +140,8 @@ class UnitScript:
                         self.currenty += 1
                         self.direction = 180
                     else:
-                        changey -= 1
+                        changey += 1
+                        self.direction = 180
                 # LEFT:
                 elif (left <= down and left <= up and left <= right):
                     if (GameLogic.GameLogic.node_array[self.currentx - 1][self.currenty].name == 0):
@@ -149,6 +149,7 @@ class UnitScript:
                         self.direction = 90
                     else:
                         changex -= 1
+                        self.direction = 90
                 # UP:
                 elif (up <= down and up <= left and up <= right):
                     if (GameLogic.GameLogic.node_array[self.currentx][self.currenty - 1].name == 0):
@@ -156,6 +157,7 @@ class UnitScript:
                         self.direction = 0
                     else:
                         changey -= 1
+                        self.direction = 0
                 # RIGHT:
                 elif (right <= down and right <= left and right <= up):
                     if (GameLogic.GameLogic.node_array[self.currentx + 1][self.currenty].name == 0):
@@ -163,6 +165,7 @@ class UnitScript:
                         self.direction = 270
                     else:
                         changex += 1
+                        self.direction = 270
                 
                 # Check if a tower is in the space
                 if (GameLogic.GameLogic.node_array[self.currentx + changex][self.currenty + changey].name != 0):
@@ -175,6 +178,8 @@ class UnitScript:
                 self.Owner.Sprite.CurrentFrame = round(self.Frame)
                 self.Owner.Transform.Rotation = VectorMath.Quat(0,0,math.radians(self.direction))
                 self.move = Vec3(self.currentx, self.currenty, 0) - Vec3(round((self.Owner.Transform.Translation.x)),round(-1*(self.Owner.Transform.Translation.y)),0)
+                
+                #print(self.move)
                 
             else:
                 # Reached the end
