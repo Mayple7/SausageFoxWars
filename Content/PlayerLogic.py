@@ -2,12 +2,13 @@ import Zero
 import Events
 import Property
 import VectorMath
+import os
 
 class PlayerLogic:
     def Initialize(self, initializer):
         Zero.Connect(self.Space, Events.LogicUpdate, self.onLogicUpdate)
         
-        self.towerstats = self.Space.FindObjectByName("TowerStats")
+        self.towerstats = self.Space.FindObjectByName("TowerStats").TowerStats
         
         #Sets the player's starting stats
         self.lives = 30
@@ -16,7 +17,21 @@ class PlayerLogic:
         self.level = 1
         self.levelCount = 0
         self.time = 10
-        self.race = self.towerstats.TowerStats.race
+        self.race = self.towerstats.race
+        
+        self.numRed = [[0] * 4 for i in range(4)]
+        self.numGreen = [[0] * 4 for i in range(4)]
+        self.numBlue = [[0] * 4 for i in range(4)]
+        self.numYellow = [[0] * 4 for i in range(4)]
+        
+        for i in range(4):
+            self.numRed[i] = 0
+        for i in range(4):
+            self.numGreen[i] = 0
+        for i in range(4):
+            self.numBlue[i] = 0
+        for i in range(4):
+            self.numYellow[i] = 0
         
         #Sets the variables to edit the HUD
         self.hudspace = Zero.Game.FindSpaceByName("HUDLevel")
@@ -46,6 +61,21 @@ class PlayerLogic:
             self.money += self.income
             self.time = 30
             self.levelCount += 1
+            
+        if(self.lives <= 0):
+            self.file = open("wave_data.txt", 'a')
+            self.file.write(str(self.level) + "," + str(self.money) + ",")
+            for i in range(4):
+                self.file.write(str(self.numRed[i]) + ",")
+            for i in range(4):
+                self.file.write(str(self.numGreen[i]) + ",")
+            for i in range(4):
+                self.file.write(str(self.numBlue[i]) + ",")
+            for i in range(4):
+                self.file.write(str(self.numYellow[i]) + ",")
+            self.file.write("\n")
+            self.file.close()
+            Zero.Game.Quit()
             
         self.updateText()
         

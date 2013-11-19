@@ -18,6 +18,7 @@ class BlueTowerLogic:
         self.range = self.towerstats.range3
         self.bulletType = self.towerstats.bullet3
         self.slowSpeed = 0.8
+        self.level = 0
         
         #Location Variables
         self.xpos = 0

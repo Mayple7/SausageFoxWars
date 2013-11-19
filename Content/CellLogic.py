@@ -131,6 +131,8 @@ class CellLogic:
             tower.RedTowerLogic.cost = self.towerstats.cost1[self.towerstats.towerlevel[0]]
             tower.RedTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.RedTowerLogic.ypos = -round(tower.Transform.Translation.y)
+            tower.RedTowerLogic.level = self.towerstats.towerlevel[0]
+            self.player.numRed[self.towerstats.towerlevel[0]] += 1
             self.player.money -= self.towerstats.cost1[self.towerstats.towerlevel[0]]
             
         elif (self.towerChoice == 2 and self.player.money >= self.towerstats.cost2[self.towerstats.towerlevel[1]] and not self.cellProp.tower):
@@ -141,6 +143,8 @@ class CellLogic:
             tower.BlueTowerLogic.cost = self.towerstats.cost2[self.towerstats.towerlevel[1]]
             tower.BlueTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.BlueTowerLogic.ypos = -round(tower.Transform.Translation.y)
+            tower.BlueTowerLogic.level = self.towerstats.towerlevel[1]
+            self.player.numBlue[self.towerstats.towerlevel[1]] += 1
             self.player.money -= self.towerstats.cost2[self.towerstats.towerlevel[1]]
             
         elif (self.towerChoice == 3 and self.player.money >= self.towerstats.cost3[self.towerstats.towerlevel[2]] and not self.cellProp.tower):
@@ -151,6 +155,8 @@ class CellLogic:
             tower.GreenTowerLogic.cost = self.towerstats.cost3[self.towerstats.towerlevel[2]]
             tower.GreenTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.GreenTowerLogic.ypos = -round(tower.Transform.Translation.y)
+            tower.GreenTowerLogic.level = self.towerstats.towerlevel[2]
+            self.player.numGreen[self.towerstats.towerlevel[2]] += 1
             self.player.money -= self.towerstats.cost3[self.towerstats.towerlevel[2]]
             
         elif (self.towerChoice == 4 and self.player.money >= self.towerstats.cost4[self.towerstats.towerlevel[3]] and not self.cellProp.tower):
@@ -161,6 +167,8 @@ class CellLogic:
             tower.YellowTowerLogic.cost = self.towerstats.cost4[self.towerstats.towerlevel[3]]
             tower.YellowTowerLogic.xpos = round(tower.Transform.Translation.x)
             tower.YellowTowerLogic.ypos = -round(tower.Transform.Translation.y)
+            tower.YellowTowerLogic.level = self.towerstats.towerlevel[3]
+            self.player.numYellow[self.towerstats.towerlevel[3]] += 1
             self.player.money -= self.towerstats.cost4[self.towerstats.towerlevel[3]]
             
         # TOWER REMOVE
@@ -179,6 +187,14 @@ class CellLogic:
                     if (cogx == removexpos and cogy == removeypos and cogz == 1):
                         # Get the tower type and give the appropriate money
                         self.player.money += round(cog.TowerLogic.cost / 2)
+                        if(cog.Name == "RedTower"):
+                            self.player.numRed[cog.RedTowerLogic.level] -= 1
+                        if(cog.Name == "GreenTower"):
+                            self.player.numGreen[cog.GreenTowerLogic.level] -= 1
+                        if(cog.Name == "BlueTower"):
+                            self.player.numBlue[cog.BlueTowerLogic.level] -= 1
+                        if(cog.Name == "YellowTower"):
+                            self.player.numYellow[cog.YellowTowerLogic.level] -= 1
                         cog.Destroy()
                         
                         #Reset node to blank

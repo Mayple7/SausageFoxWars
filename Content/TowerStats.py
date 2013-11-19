@@ -91,8 +91,8 @@ class TowerStats:
         #Race 1 Tower 2 Scaling
         self.cost2[0] = 15
         self.cost2[1] = 200
-        self.cost2[2] = 10
-        self.cost2[3] = 10
+        self.cost2[2] = 450
+        self.cost2[3] = 1000
         
         self.damage2[0] = 0
         self.damage2[1] = 20

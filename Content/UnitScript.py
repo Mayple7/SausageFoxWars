@@ -179,10 +179,11 @@ class UnitScript:
                 self.Owner.Transform.Rotation = VectorMath.Quat(0,0,math.radians(self.direction))
                 self.move = Vec3(self.currentx, self.currenty, 0) - Vec3(round((self.Owner.Transform.Translation.x)),round(-1*(self.Owner.Transform.Translation.y)),0)
                 
-                #print(self.move)
-                
             else:
                 # Reached the end
+                self.file = open("wave_data.txt", 'a')
+                self.file.write(str(self.player.PlayerLogic.level) + ",")
+                self.file.close()
                 self.player.PlayerLogic.lives -= 1
                 self.Owner.Destroy()
             

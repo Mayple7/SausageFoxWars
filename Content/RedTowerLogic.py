@@ -17,6 +17,7 @@ class RedTowerLogic:
         self.cooldown = self.towerstats.cooldown1[self.towerstats.towerlevel[0]]
         self.range = self.towerstats.range1
         self.bulletType = self.towerstats.bullet1
+        self.level = 0
         
         #Initializes the tower location
         self.xpos = 0

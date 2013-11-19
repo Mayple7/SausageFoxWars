@@ -17,6 +17,7 @@ class GreenTowerLogic:
         self.cooldown = self.towerstats.cooldown2[self.towerstats.towerlevel[1]]
         self.range = self.towerstats.range2
         self.bulletType = self.towerstats.bullet2
+        self.level = 0
         
         #Location Variables
         self.xpos = 0

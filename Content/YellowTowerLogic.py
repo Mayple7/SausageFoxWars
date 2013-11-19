@@ -17,6 +17,7 @@ class YellowTowerLogic:
         self.cooldown = self.towerstats.cooldown4[self.towerstats.towerlevel[3]]
         self.range = self.towerstats.range4
         self.bulletType = self.towerstats.bullet4
+        self.level = 0
         
         #Location Variables
         self.xpos = 0
