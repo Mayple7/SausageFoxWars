@@ -1,0 +1,8 @@
+TextContent = 
+{
+	PyScriptBuilder = 
+	{
+		string Name = "Upgrade3Logic",
+		uint64 ResourceId = 528ff434a7663fe8,
+	},
+},

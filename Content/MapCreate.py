@@ -50,6 +50,6 @@ class MapCreate:
                 else:
                     cell = self.Space.CreateAtPosition("Cell", Vec3(i, 0 - j, 0))
                     
-
-
+                        
+                        
 Zero.RegisterComponent("MapCreate", MapCreate)

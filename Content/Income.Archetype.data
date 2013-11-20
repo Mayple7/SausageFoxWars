@@ -1,0 +1,36 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Income",
+	},
+	Archetyped = 
+	{
+		string Name = "529b634641ddd311:Income",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-8.4205, -13.6288, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SpriteText = 
+	{
+		SpriteGeometryMode GeometryMode = ZPlane,
+		TextPositionMode Position = UpperLeft,
+		string FontName = "529b6ed91ae0b3e1:ARCHRISTY",
+		uint FontSize = 150,
+		Vec4 Color = [1, 0.93, 0, 1],
+		bool Visible = false,
+		string Text = "Income:",
+		bool OnTop = false,
+		BlendMode BlendMode = Alpha,
+		Vec2 Size = [0, 0],
+		TextAlign Align = Center,
+		float PixelsPerUnit = 64,
+	},
+},

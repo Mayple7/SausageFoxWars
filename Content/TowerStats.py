@@ -175,11 +175,6 @@ class TowerStats:
         self.bullet3 = 3
         self.bullet4 = 0
         
-        self.Space.CreateAtPosition("Upgrade1", VectorMath.Vec3(9.5, -12, 0))
-        self.Space.CreateAtPosition("Upgrade2", VectorMath.Vec3(13.5, -12, 0))
-        self.Space.CreateAtPosition("Upgrade3", VectorMath.Vec3(17.5, -12, 0))
-        self.Space.CreateAtPosition("Upgrade4", VectorMath.Vec3(21.5, -12, 0))
-        
     def setRace2(self):
         self.race = 2
         

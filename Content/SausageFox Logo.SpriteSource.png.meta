@@ -1,0 +1,19 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "SausageFox Logo",
+		uint64 ResourceId = 529b133f5f123b21,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 800,
+		uint FrameSizeY = 600,
+		uint FrameCount = 1,
+		float FrameDelay = 0.0833333,
+		float OriginX = 400,
+		float OriginY = 300,
+		float PixelsPerUnit = 64,
+		bool Smoothing = true,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+	},
+},

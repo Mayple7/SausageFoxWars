@@ -11,6 +11,6 @@ class Race1Button:
         self.Space.Create("TowerStats")
         towerstats = self.Space.FindObjectByName("TowerStats")
         towerstats.TowerStats.setRace1()
-        self.Space.CreateAtPosition("MapCreate", VectorMath.Vec3(-10, -2, -30))
+        self.map = self.Space.CreateAtPosition("MapCreate", VectorMath.Vec3(-10, -2, -30)).MapCreate
         
 Zero.RegisterComponent("Race1Button", Race1Button)

@@ -4,6 +4,7 @@ import Property
 import VectorMath
 import math
 import Color
+import random
 
 class GreenTowerLogic:
     def Initialize(self, initializer):
@@ -32,23 +33,24 @@ class GreenTowerLogic:
         #Searching variables
         self.searchTimer = 0
         self.searchTarget = 1
-        self.searchSpeed = 0.5
+        self.searchSpeed = random.randint(1,6) * 0.5
         
     def onLogicUpdate(self, UpdateEvent):
         #Finds a target and shoots if it is off CD
-        self.findTarget()
+        if(self.shoot):
+            self.findTarget()
         self.shotTimer -= UpdateEvent.Dt
         if (self.shotTimer < 0):
             self.shoot = 1
-        
-        #Searches every second instead of every frame
+            
+        #Searches for a target every second
         self.searchTimer -= UpdateEvent.Dt
         if (self.searchTimer < 0):
             self.searchTarget = 1
         
     def findTarget(self):
         #Searches every second
-        if(self.searchTarget):
+        if(self.searchTarget and not self.unitTargeted):
             self.searchTarget = 0
             self.searchTimer = self.searchSpeed
             #Search if the tower doesn't have a target
@@ -58,10 +60,11 @@ class GreenTowerLogic:
                 for obj in allObjects:
                     if("Unit" in obj.Name):
                         distance = math.sqrt(math.pow((obj.Transform.Translation.x - self.Owner.Transform.Translation.x),2) + math.pow((obj.Transform.Translation.y - self.Owner.Transform.Translation.y),2))
+                        #Set the target if in range
                         if (distance < self.range):
                             self.unitTargeted = obj
                             self.targeted = True
-                        continue
+                            break
                                 
         #Runs the code if there is a unit targeted
         if(self.unitTargeted):

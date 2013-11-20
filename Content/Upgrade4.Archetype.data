@@ -15,7 +15,7 @@ Cog =
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [2, 2, 1.48686],
+		Vec3 Scale = [2.5, 1.24718, 3.19969],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
@@ -23,7 +23,7 @@ Cog =
 		string SpriteSource = "5275aa4d802dd6dc:Square",
 		bool FlipX = false,
 		bool FlipY = false,
-		Vec4 Color = [0.95, 1, 0, 1],
+		Vec4 Color = [0.77, 1, 0, 1],
 		bool Visible = true,
 		bool OnTop = false,
 		bool AnimationActive = true,
@@ -47,22 +47,22 @@ Cog =
 		bool Active = true,
 		bool CaptureMouse = true,
 	},
-	Upgrade4Script = 
-	{
-	},
 	SpriteText = 
 	{
 		SpriteGeometryMode GeometryMode = ZPlane,
 		TextPositionMode Position = Centered,
-		string FontName = "4e7bac697bec55c5:Verdana",
-		uint FontSize = 10,
+		string FontName = "528b004da057178d:Blue",
+		uint FontSize = 20,
 		Vec4 Color = [0, 0, 0, 1],
 		bool Visible = true,
-		string Text = "",
+		string Text = "300g",
 		bool OnTop = true,
 		BlendMode BlendMode = Alpha,
 		Vec2 Size = [0, 0],
 		TextAlign Align = Left,
 		float PixelsPerUnit = 64,
+	},
+	Upgrade4Logic = 
+	{
 	},
 },

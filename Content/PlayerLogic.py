@@ -36,20 +36,23 @@ class PlayerLogic:
         #Sets the variables to edit the HUD
         self.hudspace = Zero.Game.FindSpaceByName("HUDLevel")
         self.moneyText = self.hudspace.FindObjectByName("Money")
-        self.incomeText = self.hudspace.FindObjectByName("Income")
-        self.levelText = self.hudspace.FindObjectByName("Level")
         self.timerText = self.hudspace.FindObjectByName("Timer")
         self.livesText = self.hudspace.FindObjectByName("Lives")
         
         self.moneyText.SpriteText.Visible = True
-        self.incomeText.SpriteText.Visible = True
-        self.levelText.SpriteText.Visible = True
         self.timerText.SpriteText.Visible = True
         self.livesText.SpriteText.Visible = True
         self.hudspace.FindObjectByName("Selector").Sprite.Visible = True
         self.hudspace.FindObjectByName("TowerUI").Sprite.Visible = True
-        self.hudspace.FindObjectByName("LevelTimer").SpriteText.Visible = True
         
+        Upgrade1 = self.hudspace.CreateAtPosition("Upgrade1",VectorMath.Vec3(-3.977,-7.2,0))
+        Upgrade1.Upgrade1Logic.LevelSpace = self.Space
+        Upgrade2 = self.hudspace.CreateAtPosition("Upgrade2",VectorMath.Vec3(-1.345,-7.2,0))
+        Upgrade2.Upgrade2Logic.LevelSpace = self.Space
+        Upgrade3 = self.hudspace.CreateAtPosition("Upgrade3",VectorMath.Vec3(1.298,-7.2,0))
+        Upgrade3.Upgrade3Logic.LevelSpace = self.Space
+        Upgrade4 = self.hudspace.CreateAtPosition("Upgrade4",VectorMath.Vec3(3.962,-7.2,0))
+        Upgrade4.Upgrade4Logic.LevelSpace = self.Space
     def onLogicUpdate(self, UpdateEvent):
         self.time -= UpdateEvent.Dt
         
@@ -81,10 +84,8 @@ class PlayerLogic:
         
     def updateText(self):
         #Updates all the text in the HUD
-        self.moneyText.SpriteText.Text = "Money: " + str(self.money)
-        self.incomeText.SpriteText.Text = "Income: " + str(self.income)
-        self.levelText.SpriteText.Text = "Level: " + str(self.level)
-        self.timerText.SpriteText.Text = "Next Income: " + str(round(self.time))
-        self.livesText.SpriteText.Text = "Lives: " + str(self.lives)
+        self.moneyText.SpriteText.Text = str(self.money) + " G"
+        self.timerText.SpriteText.Text = str(round(self.time))
+        self.livesText.SpriteText.Text = "x " + str(self.lives)
 
 Zero.RegisterComponent("PlayerLogic", PlayerLogic)

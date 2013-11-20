@@ -1,0 +1,8 @@
+FontContent = 
+{
+	FontBuilder = 
+	{
+		string Name = "ARCHRISTY",
+		uint64 ResourceId = 529b6ed91ae0b3e1,
+	},
+},

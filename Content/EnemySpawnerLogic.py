@@ -27,7 +27,6 @@ class EnemySpawnerLogic:
         if(self.starttimer < 10):
             self.starttimer += UpdateEvent.Dt
             self.leveltimer += UpdateEvent.Dt
-            self.levelTimerText.SpriteText.Text = "Next Level: " + str(round(10 - self.leveltimer))
         else:
             if(self.gamestart == False):
                 self.leveltimer = 0
@@ -37,7 +36,6 @@ class EnemySpawnerLogic:
             #Updates the timers and displays it on screen
             self.leveltimer += UpdateEvent.Dt
             self.spawnTimer += UpdateEvent.Dt
-            self.levelTimerText.SpriteText.Text = "Next Level: " + str(round(30 - self.leveltimer))
             
             #Changes level after 30 seconds
             if(self.leveltimer > 30):

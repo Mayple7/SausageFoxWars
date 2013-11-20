@@ -18,7 +18,7 @@ class CreepLogic:
             self.hparray[i] = round(50 * math.exp(0.160*i))
             self.bountyarray[i] = round(math.exp(0.115*i))
             if(i == 10 or i == 20 or i == 30 or i == 40 or i == 50 or i == 60):
-                self.speedarray[i] = 0.1
+                self.speedarray[i] = 0.075
             else:
                 self.speedarray[i] = 0.05
 

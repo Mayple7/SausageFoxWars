@@ -48,10 +48,7 @@ Level =
 		{
 			string LevelforHUD = "52451643377b9cbb:HUDLevel",
 		},
-		PlayerLogic = 
-		{
-		},
-		MapCreate = 
+		CreepLogic = 
 		{
 		},
 	},
@@ -67,7 +64,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [11.3835, -13.2458, 50.9922],
+			Vec3 Translation = [8.24729, -3.07501, 50.9922],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, -1.90735e-008, -0, 1],
 		},
@@ -79,7 +76,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 27,
+			float Size = 29,
 		},
 		EditorCameraController = 
 		{
@@ -87,7 +84,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [11.3835, -13.2458, 0.992189],
+			Vec3 LookTarget = [8.2473, -3.07501, 0.992187],
 		},
 		EditorRenderer = 
 		{
@@ -106,7 +103,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [9.20657, -17.1831, 40],
+			Vec3 Translation = [14.5, -4.5, 40],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -118,7 +115,10 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 200,
-			float Size = 10,
+			float Size = 20,
+		},
+		CameraLogic = 
+		{
 		},
 	},
 	Cog = 
@@ -129,21 +129,21 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "GameLogic",
+			string Name = "Race1Button",
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-8, -1.5, -30],
-			Vec3 Scale = [1, 1, 1],
+			Vec3 Translation = [14.5, -4.5, 0.992188],
+			Vec3 Scale = [1.85201, 1.85201, 1.85201],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
 		{
-			string SpriteSource = "5274db4c2e7c11f9:Circle",
+			string SpriteSource = "524072287c07582e:race_button",
 			bool FlipX = false,
 			bool FlipY = false,
 			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = false,
+			bool Visible = true,
 			bool OnTop = false,
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
@@ -151,26 +151,23 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 		},
-		GameLogic = 
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = false,
+			string MaterialName = "4faa6050b8692851:HardMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [2.375, 0.8, 0.5],
+		},
+		Race1Button = 
 		{
 		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "52bd0ed6b3aeff6b:BulletSplash",
-		LinkId = 
+		Reactive = 
 		{
-			uint Id = 5,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [11.3835, -13.2458, 0.992189],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Named = 
-		{
-			string Name = "BulletSplash",
+			bool Active = true,
+			bool CaptureMouse = true,
 		},
 	},
 },
