@@ -15,8 +15,8 @@ class CreepLogic:
             
     def setCreepArray(self):
         for i in range(60):
-            self.hparray[i] = round(50 * math.exp(0.1622*i))
-            self.bountyarray[i] = round(math.exp(0.1*i))
+            self.hparray[i] = round(50 * math.exp(0.160*i))
+            self.bountyarray[i] = round(math.exp(0.115*i))
             if(i == 10 or i == 20 or i == 30 or i == 40 or i == 50 or i == 60):
                 self.speedarray[i] = 0.1
             else:

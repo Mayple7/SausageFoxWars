@@ -10,7 +10,7 @@ class RedTowerBulletLogic:
         Zero.Connect(self.Owner, Events.CollisionPersisted, self.OnCollision)
         
         #Initializes the bullet logic
-        self.Speed = 15
+        self.Speed = 30
         self.targetedUnit = 0
         self.damage = 0
         self.BulletType = 0 # 0 : normal, 1 : Splash, 2 : slow, 3 : stun
@@ -19,7 +19,7 @@ class RedTowerBulletLogic:
     def onLogicUpdate(self, UpdateEvent):
         #Chases the enemy if there is a target
         if (self.targetedUnit):
-            self.Speed += UpdateEvent.Dt * 5
+            #self.Speed += UpdateEvent.Dt * 5
             direction = self.targetedUnit.Transform.Translation - self.Owner.Transform.Translation
             direction.normalize()
             self.Owner.Transform.Translation += VectorMath.Vec3(direction.x * (UpdateEvent.Dt * self.Speed), direction.y * (UpdateEvent.Dt * self.Speed), 0)

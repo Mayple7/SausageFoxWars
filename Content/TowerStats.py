@@ -65,9 +65,9 @@ class TowerStats:
         self.cost1[3] = 800
         
         self.damage1[0] = 32
-        self.damage1[1] = 40
-        self.damage1[2] = 80
-        self.damage1[3] = 160
+        self.damage1[1] = 112
+        self.damage1[2] = 392
+        self.damage1[3] = 1372
         
         self.cooldown1[0] = 1.25
         self.cooldown1[1] = 1.15
@@ -175,10 +175,10 @@ class TowerStats:
         self.bullet3 = 3
         self.bullet4 = 0
         
-        self.Space.CreateAtPosition("Upgrade1", VectorMath.Vec3(9.5, -10.5, 0))
-        self.Space.CreateAtPosition("Upgrade2", VectorMath.Vec3(13.5, -10.5, 0))
-        self.Space.CreateAtPosition("Upgrade3", VectorMath.Vec3(17.5, -10.5, 0))
-        self.Space.CreateAtPosition("Upgrade4", VectorMath.Vec3(21.5, -10.5, 0))
+        self.Space.CreateAtPosition("Upgrade1", VectorMath.Vec3(9.5, -12, 0))
+        self.Space.CreateAtPosition("Upgrade2", VectorMath.Vec3(13.5, -12, 0))
+        self.Space.CreateAtPosition("Upgrade3", VectorMath.Vec3(17.5, -12, 0))
+        self.Space.CreateAtPosition("Upgrade4", VectorMath.Vec3(21.5, -12, 0))
         
     def setRace2(self):
         self.race = 2

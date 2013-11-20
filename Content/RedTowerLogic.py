@@ -4,6 +4,7 @@ import Property
 import VectorMath
 import math
 import Color
+import random
 
 class RedTowerLogic:
     def Initialize(self, initializer):
@@ -32,11 +33,12 @@ class RedTowerLogic:
         #Timer variables
         self.searchTimer = 0
         self.searchTarget = 1
-        self.searchSpeed = 0.5
+        self.searchSpeed = random.randint(1,6) * 0.5
         
     def onLogicUpdate(self, UpdateEvent):
         #Finds a target the shoots if it is off CD
-        self.findTarget()
+        if(self.shoot):
+            self.findTarget()
         self.shotTimer -= UpdateEvent.Dt
         if (self.shotTimer < 0):
             self.shoot = 1
@@ -48,7 +50,7 @@ class RedTowerLogic:
         
     def findTarget(self):
         #Searches every second
-        if(self.searchTarget):
+        if(self.searchTarget and not self.unitTargeted):
             self.searchTarget = 0
             self.searchTimer = self.searchSpeed
             #Search if the tower doesn't have a target
@@ -62,7 +64,7 @@ class RedTowerLogic:
                         if (distance < self.range):
                             self.unitTargeted = obj
                             self.targeted = True
-                        continue
+                            break
                         
         #Runs the code if there is a unit targeted
         if(self.unitTargeted):

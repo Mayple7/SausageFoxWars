@@ -98,7 +98,7 @@ class UnitScript:
             self.player.PlayerLogic.money += self.bounty
             self.Owner.Destroy()
             
-        self.Owner.SpriteText.Text = str(round(self.health))
+        #self.Owner.SpriteText.Text = str(round(self.health))
         
         if (self.MovingTimer > 0 and self.MovingActive == 0):
             self.MovingTimer -= UpdateEvent.Dt
